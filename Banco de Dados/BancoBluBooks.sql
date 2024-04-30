@@ -3,11 +3,26 @@ CREATE DATABASE bdBluBooks;
 
 USE bdBluBooks;
 
+CREATE TABLE tbLivros
+(
+	idLivro INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(45) NOT NULL,
+    descricao VARCHAR(200) NOT NULL,
+    genero VARCHAR(45),
+    dataLancamento DATETIME NOT NULL,
+    totalPaginas INT NOT NULL,
+	avaliacao INT,
+    statusLeitura VARCHAR(11),
+    CONSTRAINT statusLeitura CHECK(statusLeitura IN ("Não Lido", "Quero Ler", "Lendo", "Lido"))
+);
+
 CREATE TABLE tbPlanoLeitura
 (
 	idPlano INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     qntLivros INT NOT NULL,
-    qntDias INT NOT NULL
+    qntDias INT NOT NULL,
+    fkPlanoLivro INT,
+    CONSTRAINT fkPlanoLivro FOREIGN KEY (fkPlanoLivro) REFERENCES tbLivros(idLivro)
 );
 
 CREATE TABLE tbUsuario
@@ -22,30 +37,14 @@ CREATE TABLE tbUsuario
     CONSTRAINT fkPlanoLeitura FOREIGN KEY (fkPlanoLeitura) REFERENCES tbPlanoLeitura(idPlano)
 );
 
-CREATE TABLE tbLivros
+CREATE TABLE tbAvaliacao
 (
-	idLivro INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    nome VARCHAR(45) NOT NULL,
-    descricao VARCHAR(200) NOT NULL,
-    genero VARCHAR(45),
-    dataLancamento DATETIME NOT NULL,
-    totalPaginas INT NOT NULL,
-	avaliacao INT,
-    statusLeitura VARCHAR(11),
-    CONSTRAINT statusLeitura CHECK(statusLeitura IN ("Não Lido", "Quero Ler", "Lendo", "Lido"))
-);
-
-CREATE TABLE tbLeituras
-(
-	idLeituras INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    avaliacaoPessoal INT,
-    fkLivros INT,
+	idAvaliacao INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    avaliacao INT,
+    fkLivro INT,
     fkUsuario INT,
-    CONSTRAINT fkLivros FOREIGN KEY (fkLivros) REFERENCES tbLivros(idLivro),
+    CONSTRAINT fkLivro FOREIGN KEY (fkLivro) REFERENCES tbLivros(idLivro),
     CONSTRAINT fkUsuario FOREIGN KEY (fkUsuario)  REFERENCES tbUsuario(idUsuario)
 )
-
-
-
 
 
