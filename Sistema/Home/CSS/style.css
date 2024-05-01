@@ -16,19 +16,67 @@ body {background-color: white;}
      display: flex;
      flex-direction: column;
      justify-content: center;
-     align-items: center;
+     align-items: end;
      width: 60%;
+     height: 100vh;
 }
 
 #conteinerUmSessaoUm img
 {
-     width: 55rem;
-     height: 55rem;
+     width: 100%;
+     height: 99vh;
+     background-size: cover;
      transform: scaleX(-1);
 }
+
 #conteinerDoisSessaoUm
 {
      display: flex;
      flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     gap: 3rem;
      width: 40%;
+     padding: 0.5rem;
+     padding-right: 5rem;
+     text-align: center;
+     
+}
+
+#conteinerDoisSessaoUm h1
+{
+     color: white;
+     font-size: 5rem;
+     flex-wrap: wrap;
+     font-weight: 700;
+}
+
+#conteinerDoisSessaoUm p
+{
+     margin-top: 2.5rem;
+     font-size: 1.5rem;
+     font-weight: 400;
+     color: white;
+}
+
+#conteinerDoisSessaoUm button
+{
+     border: 0;
+     border-radius: 1.5rem;
+     height: 2.5rem;
+     width: 12rem;
+     background-color: #fff;
+     color: #5E7EA8;
+     font-size: 1rem;
+     font-weight: 600;
+     transition: all 0.5s ease-in-out;
+}
+
+#conteinerDoisSessaoUm button:hover
+{
+     transition: all 0.5s ease-in-out;
+     transform: scale(1);
+     background-color: #5E7EA8;
+     border: 1px solid #fff;
+     color: #fff;
 }
