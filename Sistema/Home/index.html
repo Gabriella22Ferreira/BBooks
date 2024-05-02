@@ -71,8 +71,65 @@
             </div>
         </div>
     </section>
+    <!-- FIM DA SEGUNDA SESSÃO -->
 
 
+
+
+    <!-- TERCEIRA SESSÃO  -->
+    <section id="sessaoTres">
+        <div id="conteinerUmSessaotres">
+            <h1>CONHEÇA MAIS</h1>
+        </div>
+        <div id="conteinerDoisSessaotres">
+
+            <div id="carrossel">
+                
+            </div>
+              
+            
+
+        </div>
+    </section>
 
 </body>
 </html>
+
+
+
+
+
+
+<script>
+
+
+
+
+    const tituloCardCarrossel = Array(
+        'CADASTRE SEUS LIVROS',
+        'FAÇA PLANOS DE LEITURA',
+        'DESENVOLVA SEU INTELECTO',
+        'EXERCITE SUA CRIATIVIDADE',
+        'DOMINE SEU MUNDO'
+    )
+
+    const iconCardCarrossel = Array(
+        'Img/abra-o-livro.png'
+        
+    )
+
+    for(let contador = 0; contador <= 5; contador++)
+    {
+        carrossel.innerHTML =
+        `
+        <a id="prev" href="#">‹</a>
+            <div id="carrosel-inner">
+                <div id="cardCarrossel">
+                    <p id="tituloCardCarrossel"></p>
+                    <img src= "" id="iconCardCarrossel">
+                </div>
+            </div>
+            <a id="next" href="#">›</a>
+        `
+    }
+</script>
