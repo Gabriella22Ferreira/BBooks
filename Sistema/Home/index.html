@@ -84,7 +84,10 @@
         <div id="conteinerDoisSessaotres">
 
             <div id="carrossel">
-                
+                <a id="prev" href="#">‹</a>
+                <div id="carrosselInner">
+                </div>
+                <a id="next" href="#">›</a>     
             </div>
               
             
@@ -101,10 +104,6 @@
 
 
 <script>
-
-
-
-
     const tituloCardCarrossel = Array(
         'CADASTRE SEUS LIVROS',
         'FAÇA PLANOS DE LEITURA',
@@ -114,22 +113,19 @@
     )
 
     const iconCardCarrossel = Array(
-        'Img/abra-o-livro.png'
+        'Img/abra-o-livro.png',
+        'Img/planner.png',
         
     )
 
     for(let contador = 0; contador <= 5; contador++)
     {
-        carrossel.innerHTML =
+        carrosselInner.innerHTML =
         `
-        <a id="prev" href="#">‹</a>
-            <div id="carrosel-inner">
-                <div id="cardCarrossel">
-                    <p id="tituloCardCarrossel"></p>
-                    <img src= "" id="iconCardCarrossel">
-                </div>
+            <div id="cardCarrossel">
+                <p id="${tituloCardCarrossel}"></p>
+                <img src= "${iconCardCarrossel}" id="iconCardCarrossel">
             </div>
-            <a id="next" href="#">›</a>
         `
     }
 </script>
