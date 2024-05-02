@@ -49,6 +49,7 @@ header
      color: white;
      text-decoration: none;
      font-weight: 300;
+     cursor: pointer;
 }
 
 #itensNav
@@ -65,6 +66,7 @@ header
      font-weight: 500;
      text-decoration: none;
      color: #3e5369;
+     cursor: pointer;
 }
 
 #buttonsNav
@@ -82,6 +84,7 @@ header
      font-size: 1rem;
      font-weight: 400;
      text-decoration: none;
+     cursor: pointer;
      
 }
 #btnUm
