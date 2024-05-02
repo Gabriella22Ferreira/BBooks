@@ -21,8 +21,9 @@ CREATE TABLE tbPlanoLeitura
 	idPlano INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     qntLivros INT NOT NULL,
     qntDias INT NOT NULL,
-    fkPlanoLivro INT,
-    CONSTRAINT fkPlanoLivro FOREIGN KEY (fkPlanoLivro) REFERENCES tbLivros(idLivro)
+    avaliacaoLivro INT,
+    fkLivro INT,
+    CONSTRAINT fkLivro FOREIGN KEY (fkLivro) REFERENCES tbLivros(idLivro)
 );
 
 CREATE TABLE tbUsuario
@@ -37,14 +38,14 @@ CREATE TABLE tbUsuario
     CONSTRAINT fkPlanoLeitura FOREIGN KEY (fkPlanoLeitura) REFERENCES tbPlanoLeitura(idPlano)
 );
 
-CREATE TABLE tbAvaliacao
-(
-	idAvaliacao INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    avaliacao INT,
-    fkLivro INT,
-    fkUsuario INT,
-    CONSTRAINT fkLivro FOREIGN KEY (fkLivro) REFERENCES tbLivros(idLivro),
-    CONSTRAINT fkUsuario FOREIGN KEY (fkUsuario)  REFERENCES tbUsuario(idUsuario)
-)
+-- CREATE TABLE tbAvaliacao
+-- (
+-- 	idAvaliacao INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+--   avaliacao INT,
+--    fkLivro INT,
+--    fkUsuario INT,
+--    CONSTRAINT fkLivro FOREIGN KEY (fkLivro) REFERENCES tbLivros(idLivro),
+--    CONSTRAINT fkUsuario FOREIGN KEY (fkUsuario)  REFERENCES tbUsuario(idUsuario)
+-- )
 
 
