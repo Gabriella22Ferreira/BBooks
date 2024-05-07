@@ -23,3 +23,31 @@
             </div>
         </div>
     </header>
+
+    <form>
+        <div id="conteinerForm">
+            <input type="text" placeholder="E-mail" id="ipt_email"> 
+            <br/>
+            <input type="password" placeholder="Senha" name="" id="ipt_senha">
+            <br/>
+            <button onclick="entrar()"> ENTRAR </button>
+
+        </div>
+    </form>
+</body>
+</html>
+
+<script>
+
+    function entrar()
+    {
+        const email = ipt_email.value;
+        const senha = ipt_senha.value;
+
+
+        if(email == " " || senha == " ")
+        {
+            // mensagem.innerHTML = `Preencha todos os campos`
+        }
+    }
+</script>
