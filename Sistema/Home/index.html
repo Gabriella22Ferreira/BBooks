@@ -82,18 +82,15 @@
             <h1>CONHEÇA MAIS</h1>
         </div>
         <div id="conteinerDoisSessaotres">
-
             <div id="carrossel">
                 <a id="prev" href="#">‹</a>
                 <div id="carrosselInner">
                 </div>
-                <a id="next" href="#">›</a>     
+                <a id="next" href="#">›</a>
             </div>
-              
-            
-
         </div>
     </section>
+    
 
 </body>
 </html>
@@ -104,28 +101,51 @@
 
 
 <script>
-    const tituloCardCarrossel = Array(
+    const tituloCardCarrossel = [
         'CADASTRE SEUS LIVROS',
         'FAÇA PLANOS DE LEITURA',
         'DESENVOLVA SEU INTELECTO',
         'EXERCITE SUA CRIATIVIDADE',
         'DOMINE SEU MUNDO'
-    )
+    ]
 
-    const iconCardCarrossel = Array(
+    const iconCardCarrossel = [
         'Img/abra-o-livro.png',
         'Img/planner.png',
+        'Img/abra-o-livro.png',
+        'Img/planner.png',
+        'Img/abra-o-livro.png'
         
-    )
+    ]
 
-    for(let contador = 0; contador <= 5; contador++)
+    const carrosselInner = document.getElementById('carrosselInner');
+
+    for (let i = 0; i < tituloCardCarrossel.length; i++) 
     {
-        carrosselInner.innerHTML =
-        `
-            <div id="cardCarrossel">
-                <p id="${tituloCardCarrossel}"></p>
-                <img src= "${iconCardCarrossel}" id="iconCardCarrossel">
-            </div>
-        `
+        const card = document.createElement('div');
+        card.classList.add('cardCarrossel');
+        card.innerHTML = `
+            <p>${tituloCardCarrossel[i]}</p>
+            <img src="${iconCardCarrossel[i]}" class="iconCardCarrossel">
+        `;
+        carrosselInner.appendChild(card);
     }
+
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    const carrossel = document.getElementById('carrossel');
+
+
+    prev.addEventListener('click', function(event) 
+    {
+        event.preventDefault();
+        carrossel.scrollLeft -= 200;
+    });
+
+    next.addEventListener('click', function(event)
+    {
+        event.preventDefault();
+        carrossel.scrollLeft += 200;
+    })
+    
 </script>

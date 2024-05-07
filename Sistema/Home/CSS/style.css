@@ -203,7 +203,9 @@ body {background-color: white;}
      width: 80%;
 }
 
-#carrossel 
+/* carrossel */
+
+/* #carrossel 
 {
      display: flex;
      flex-direction: row;
@@ -211,8 +213,42 @@ body {background-color: white;}
      align-items: center;
      width: 80%;
      overflow: hidden;
+     gap: 2rem;
+} */
+#carrosselInner {
+     display: flex;
+     overflow-x: auto;
+     overflow-y: hidden; 
+     scroll-behavior: smooth; 
+     white-space: nowrap;
+     gap: 1.5rem;
+     width: 80%;
+     height: 80%;
+ }
+
+.cardCarrossel {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     color: #384b64;
+     align-items: center;
+     flex: 0 0 auto;
+     margin-right: 20px;
+     height: 25%;
+     width: 35%;
+     border: 1px solid #384b64;
+     border-radius: 2.5rem;
+
 }
 
+.cardCarrossel .iconCardCarrossel
+{
+     width: 15rem;
+     height: 15rem;
+}
+ 
+
+/* 
 #cardCarrossel
 {
      display: flex;
@@ -226,7 +262,7 @@ body {background-color: white;}
      padding: 1rem;
      color: #384b64;
      
-}
+} */
 
 #next, #prev 
 { 
