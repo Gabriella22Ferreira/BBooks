@@ -40,28 +40,27 @@ body {background-color: white;}
 {
      display: flex;
      flex-direction: column;
-     /* justify-content: center; */
      align-items: center;
      padding-top: 3.5rem;
-     gap: 1.5rem;
+     gap: 1.8rem;
      width: 40%;
-     padding-right: 4.5rem;
+     padding-right: 5rem;
      text-align: center;
      
 }
 
 #conteinerDoisSessaoUm h1
 {
-     color: white;
-     font-size: 5rem;
+     color: #ffffff;
+     font-size: 5.5rem;
      flex-wrap: wrap;
-     font-weight: 500;
+     font-weight: 600;
 }
 
 #conteinerDoisSessaoUm p
 {
-     margin-top: 1rem;
-     font-size: 1.5rem;
+     margin-top: 5rem;
+     font-size: 1.6rem;
      font-weight: 300;
      color: white;
 }
@@ -115,15 +114,13 @@ body {background-color: white;}
      flex-direction: column;
      justify-content: center;
      width: 45%;
-     margin-top: 1.5rem;
-     padding-left: 5rem;
-     
+     padding-left: 5rem;     
 }
 
 #conteinerUmSessaoDois h1
 {
      color: white;
-     font-size: 4.5rem;
+     font-size: 5rem;
      font-weight: 300;
 }
 
