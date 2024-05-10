@@ -29,7 +29,7 @@ header
      justify-content: center;
      align-items: center;
      background-color: #a7c0e2;
-     position: fixed;
+     position:static;
      
 }
 

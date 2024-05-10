@@ -1,0 +1,21 @@
+#conteinerForm
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    width: 28rem;
+    height: 28rem;
+    border: 1px solid #384B64;
+    border-radius: 2rem;
+    box-shadow: 9px 20px 20px 1px #384B64;
+    gap: 1rem;
+}
