@@ -30,8 +30,9 @@ body {background-color: white;}
 #imgSessaoUm
 {
      display: flex;
-     height: 80%;
-     width: 90%;
+     height: 91%;
+     width: 92%;
+
      background-size: cover;
 }
 
