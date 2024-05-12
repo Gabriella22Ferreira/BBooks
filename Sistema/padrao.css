@@ -28,7 +28,7 @@ header
      display: flex;
      justify-content: center;
      align-items: center;
-     background-color: #a7c0e2;
+     background-color: #b6c2cfcb;
      position:static;
      
 }
@@ -46,7 +46,7 @@ header
 #conteinerNav h1
 {
      font-size: 2rem;
-     color: white;
+     color: #4c6a91;
      text-decoration: none;
      font-weight: 300;
      cursor: pointer;

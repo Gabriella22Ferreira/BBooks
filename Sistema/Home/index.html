@@ -120,6 +120,8 @@
         
     ]
 
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
     const carrosselInner = document.getElementById('carrosselInner');
 
     for (let i = 0; i < tituloCardCarrossel.length; i++) 
@@ -133,21 +135,16 @@
         carrosselInner.appendChild(card);
     }
 
-    const prev = document.getElementById('prev');
-    const next = document.getElementById('next');
-    const carrossel = document.getElementById('carrossel');
-
-
     prev.addEventListener('click', function(event) 
     {
         event.preventDefault();
-        carrossel.scrollLeft -= 200;
+        carrosselInner.scrollLeft -= 200;
     });
 
     next.addEventListener('click', function(event)
     {
         event.preventDefault();
-        carrossel.scrollLeft += 200;
+        carrosselInner.scrollLeft += 200;
     })
     
 </script>

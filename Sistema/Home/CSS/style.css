@@ -1,4 +1,4 @@
-body {background-color: white;}
+body {background-color: #ffffff;}
 
 
 #sessaoUm 
@@ -17,7 +17,7 @@ body {background-color: white;}
      flex-direction: column;
      justify-content: center;
      align-items: end;
-     width: 60%;
+     width: 57%;
      height: 100vh;
 }
 
@@ -30,9 +30,8 @@ body {background-color: white;}
 #imgSessaoUm
 {
      display: flex;
-     height: 91%;
-     width: 92%;
-
+     height: 85%;
+     width: 86%;
      background-size: cover;
 }
 
