@@ -28,7 +28,7 @@ header
      display: flex;
      justify-content: center;
      align-items: center;
-     background-color: #b6c2cfcb;
+     background-color: #e0e6eccb;
      position:static;
      
 }
@@ -46,7 +46,7 @@ header
 #conteinerNav h1
 {
      font-size: 2rem;
-     color: #4c6a91;
+     color: #384B64;
      text-decoration: none;
      font-weight: 300;
      cursor: pointer;
@@ -65,7 +65,7 @@ header
      font-size: 1.5rem;
      font-weight: 500;
      text-decoration: none;
-     color: #3e5369;
+     color: #384B64;
      cursor: pointer;
 }
 
@@ -73,11 +73,12 @@ header
 {
      display: flex;
      justify-content: center;
+     gap: 1rem;
 }
 
 #btnUm, #btnDois
 {
-     border: 1px solid white;
+     border: 1px solid #384B64;
      border-radius: 0.1rem;
      height: 2rem;
      width: 7rem;
@@ -90,10 +91,10 @@ header
 #btnUm
 {
      background-color: var(---corHeader);
-     color: white;
+     color: #384B64;
 }
 #btnDois
 {
-     background-color: white;
+     background-color: #384B64;
      color: #a7c0e2;
 }

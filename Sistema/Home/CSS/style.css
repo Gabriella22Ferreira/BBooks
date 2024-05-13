@@ -7,8 +7,9 @@ body {background-color: #ffffff;}
      flex-direction: row;
      width: 100%;
      height: 100vh;
-     background-image: url(../IMG/FUNDOSESSÃOUM.png);
-     background-size: cover;
+     background-color: #384b64;
+     /* background-image: url(../IMG/FUNDOSESSÃOUM.png);
+     background-size: cover; */
 }
 
 #conteinerUmSessaoUm
