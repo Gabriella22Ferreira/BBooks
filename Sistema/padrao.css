@@ -81,22 +81,22 @@ header
 #btnUm, #btnDois
 {
      border: 1px solid #384B64;
-     border-radius: 0.1rem;
+     border-radius: 0.2rem;
      height: 2rem;
-     width: 7rem;
+     width: 7.5rem;
      font-size: 1rem;
-     font-weight: 400;
+     font-weight: 500;
      text-decoration: none;
      cursor: pointer;
+     background-color: var(---corHeader);
+     color: #2c3f58;
+     transition: 0.5s all ease-in-out;
      
 }
-#btnUm
+
+#btnUm:hover, #btnDois:hover
 {
-     background-color: var(---corHeader);
-     color: #384B64;
-}
-#btnDois
-{
+     transition: 0.5s all ease-in-out;
      background-color: #384B64;
-     color: #a7c0e2;
+     color: #cfd5dd;
 }
