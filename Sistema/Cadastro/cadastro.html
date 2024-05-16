@@ -53,3 +53,38 @@
 
 </body>
 </html>
+
+<script>
+
+    function cadastrar()
+    {
+        const nome = ipt_nome.value;
+        const sobrenome = ipt_sobrenome.value;
+        const idade = Number(ipt_idade.value);
+        const email = ipt_email.value;
+        const senha = ipt_senha.value;
+        const confirmacao = ipt_confirmacaoSenha.value;
+
+        if(nome == "" || sobrenome == "" || idade == "" || email == "" ||  senha == "" ||  confirmacao== "" )
+        {
+            mensagemPreencher.innerHTML = ` Preencha todos os campos!`
+        }
+        else
+        {
+            if(senha.length < 6)
+            {
+                mensagem.innerHTML = `A senha deve ter no minimo 6 digitos!`
+            }
+            else if (senha != confirmacaoSenha)
+            {
+                mensagem.innerHTML = `As senhas estão diferentes!`
+            }
+        }
+
+
+
+       
+
+    }
+
+</script>
