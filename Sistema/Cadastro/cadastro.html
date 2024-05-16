@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="../padrao.css">
 
-    <title>BluBooks</title>
+    <title>BBooks cadastro</title>
 </head>
 <body>
     <header>
@@ -23,3 +23,29 @@
             </div>
         </div>
     </header>
+
+    
+    <div id="conteinerForm">
+        <div id="form">
+            <h1>CADASTRO</h1>
+            <p>É sempre bom ter mais o que compartilhar e aprender!</p>
+            <form action="cadastro.js" method="post">
+                <label>Nome:</label>
+                <input type="text" placeholder="Nome" id="ipt_nome">
+                <label>Sobrenome:</label>
+                <input type="text" placeholder="Sobrenome" id="ipt_sobrenome">
+                <label>Idade:</label>
+                <input type="number" min="1" placeholder="Idade" id="ipt_idade">
+                <label>E-mail:</label>
+                <input type="text" placeholder="E-mail" id="ipt_email"> 
+                <label>Senha:</label>
+                <input type="password" placeholder="Senha" name="" id="ipt_senha">
+                <label>Confirmação de senha:</label>
+                <input type="password" placeholder="Confirme a Senha" id="ipt_confirmacaoSenha">
+            </form>
+                <button id="btnEntrar" onclick="entrar()"> ENTRAR </button>
+        </div>
+    </div>
+
+</body>
+</html>
