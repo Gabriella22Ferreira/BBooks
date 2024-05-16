@@ -216,21 +216,16 @@ body {background-color: #384b64;}
      display: flex;
      justify-content: center;
      align-items: center;
-     width: 80%;
+     width: 50%;
+     gap: 1.5rem;
 }
-#carrossel a 
-{
-     font-size: 1rem;
-}
+
 #carrosselInner {
      display: flex;
-     justify-content: center;
-     align-items: center;
-     overflow-x: scroll;
      scroll-behavior: smooth; 
      white-space: nowrap;
-     width: 90%;
-     padding: 1rem;
+     width: 80%;
+     gap: 2.5rem;
      height: 100%;
  }
 
@@ -242,23 +237,32 @@ body {background-color: #384b64;}
      color: #384b64;
      align-items: center;
      flex: 0 0 auto;
-     margin-right: 20px;
      width: 29%;
      border: 1px solid #384b64;
      border-radius: 2.5rem;
-     padding: 1.1rem;
+     padding: 1.5rem;
+     
 
-}
-
-.cardCarrossel .iconCardCarrossel
-{
-     width: 15rem;
-     height: 15rem;
-     padding: 1rem;
+     img{
+          width: 15rem;
+          height: 15rem;
+          padding: 3rem;
+     }
 }
 
 .cardCarrossel p
 {
-     font-size: 1rem;
+     font-size: 1.2rem;
 }
- 
+
+#carrossel a /*botao*/
+{
+     font-size: 6rem;
+     text-decoration: none;
+     color: #384b64;
+     transition: all 0.3s ease-in-out;
+}
+#carrossel a:hover
+{
+    transition: all 0.3s ease-in-out;
+}
