@@ -8,9 +8,7 @@ body {background-color: #384b64;}
      margin-top: 4rem;
      width: 100%;
      height: 100vh;
-     background-color: #384b64;
-     /* background-image: url(../IMG/FUNDOSESSÃOUM.png);
-     background-size: cover; */
+     background-color: #3a4a5f;
 }
 
 #conteinerUmSessaoUm
@@ -19,14 +17,21 @@ body {background-color: #384b64;}
      flex-direction: column;
      justify-content: center;
      align-items: end;
-     width: 57%;
+     width: 50%;
      height: 100vh;
-}
-
-#conteinerUmSessaoUm img
-{
+     
+     img{
      background-size: cover;
-     transform: scaleX(-1);
+     /* transform: scaleX(-1); */
+     transform: translateY(0px);
+     animation: float 5s ease-in-out infinite;
+     }
+}
+@keyframes float
+{
+     0% {transform: translateY(0px);}
+     50%{transform: translateY(-30px);}
+     100%{transform: translateY(0px);}
 }
 
 #imgSessaoUm
@@ -42,9 +47,9 @@ body {background-color: #384b64;}
      display: flex;
      flex-direction: column;
      align-items: center;
-     padding-top: 3.5rem;
+     padding-top: 6rem;
      gap: 1.8rem;
-     width: 40%;
+     width: 50%;
      padding-right: 5rem;
      text-align: center;
      
@@ -53,15 +58,15 @@ body {background-color: #384b64;}
 #conteinerDoisSessaoUm h1
 {
      color: #ffffff;
-     font-size: 5.5rem;
+     font-size: 8rem;
      flex-wrap: wrap;
-     font-weight: 600;
+     font-weight: 400;
 }
 
 #conteinerDoisSessaoUm p
 {
-     margin-top: 5rem;
-     font-size: 1.6rem;
+     margin-top: 6.5rem;
+     font-size: 1.5rem;
      font-weight: 300;
      color: white;
 }
@@ -71,10 +76,10 @@ body {background-color: #384b64;}
      cursor: pointer;
      border: 0;
      border-radius: 1.5rem;
-     height: 2.5rem;
-     width: 12rem;
+     height: 2.7rem;
+     width: 13.8rem;
      background-color: #fff;
-     color: #5E7EA8;
+     color: #344a66;
      font-size: 1rem;
      font-weight: 600;
      transition: all 0.5s ease-in-out;
@@ -84,8 +89,8 @@ body {background-color: #384b64;}
 {
      transition: all 0.5s ease-in-out;
      transform: scale(1);
-     background-color: #5E7EA8;
-     border: 1px solid #fff;
+     background-color: #5e7ea800;
+     border: 0.1rem solid #fff;
      color: #fff;
 }
 
@@ -257,15 +262,3 @@ body {background-color: #384b64;}
      font-size: 1rem;
 }
  
-/* #next, #prev 
-{ 
-     width: 5rem;
-     height: 5rem;
-     color: #384b64;
-     &:hover
-     {
-          color: #5E7EA8;
-     }
-
-     
-} */
