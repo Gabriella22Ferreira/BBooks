@@ -71,6 +71,9 @@
         }
         else
         {
+            let emailNaoTemArroba = email.indexOf('@');
+            let emailSemPonto = indexOf('.');
+
             if(senha.length < 6)
             {
                 mensagem.innerHTML = `A senha deve ter no minimo 6 digitos!`
@@ -78,6 +81,14 @@
             else if (senha != confirmacaoSenha)
             {
                 mensagem.innerHTML = `As senhas estão diferentes!`
+            }
+            else if (idade.length > 2)
+            {
+                mensagem.innerHTML = `É improvável que você tenha mais de 100 anos`
+            }
+            else if(emailNaoTemArroba || emailSemPonto)
+            {
+                mensagem.innerHTML = `E-mail inválido!`
             }
         }
 
