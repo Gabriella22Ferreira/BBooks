@@ -85,18 +85,20 @@ header
      height: 2rem;
      width: 7.5rem;
      font-size: 1rem;
-     font-weight: 500;
+     font-weight: 550;
      text-decoration: none;
      cursor: pointer;
      background-color: var(---corHeader);
      color: #2c3f58;
-     transition: 0.5s all ease-in-out;
+     transition: all 0.5s ease-in-out;
      
 }
 
 #btnUm:hover, #btnDois:hover
 {
-     transition: 0.5s all ease-in-out;
+     transition: all 0.5s  ease-in-out;
      background-color: #384B64;
      color: #cfd5dd;
+
 }
+ 
