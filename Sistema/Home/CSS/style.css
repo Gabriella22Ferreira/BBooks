@@ -224,7 +224,7 @@ body {background-color: #384b64;}
      display: flex;
      scroll-behavior: smooth; 
      white-space: nowrap;
-     width: 80%;
+     width: 50%;
      gap: 2.5rem;
      height: 100%;
  }
@@ -237,10 +237,10 @@ body {background-color: #384b64;}
      color: #384b64;
      align-items: center;
      flex: 0 0 auto;
-     width: 29%;
+     width: 30%;
      border: 1px solid #384b64;
      border-radius: 2.5rem;
-     padding: 1.5rem;
+     padding: 2rem;
      
 
      img{
