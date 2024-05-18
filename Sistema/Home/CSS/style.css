@@ -211,7 +211,7 @@ body {background-color: #384b64;}
      flex-direction: row;
      justify-content: center;
      align-items: center;
-     height: 85%;
+     height: 80%;
 }
 
 /* carrossel */
@@ -222,7 +222,7 @@ body {background-color: #384b64;}
      justify-content: center;
      align-items: center;
      width: 60%;
-     height: 85%;
+     height: 90%;
      gap: 1.5rem;
 }
 
@@ -232,6 +232,7 @@ body {background-color: #384b64;}
      white-space: nowrap;
      width: 50%;
      gap: 2.5rem;
+     padding: 0.5rem;
      height: 90%;
  }
 
@@ -248,6 +249,7 @@ body {background-color: #384b64;}
      border-radius: 4rem;
      padding: 0rem 3rem 0rem 3rem;
      gap: 2rem;
+     box-shadow: 2px 2px 8px 1px #111c29;
 
      img{
           width: 15rem;
