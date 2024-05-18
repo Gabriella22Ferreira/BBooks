@@ -99,6 +99,34 @@ body {background-color: #384b64;}
 
 
 
+/* PAUSA */
+/* #pausa
+{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     background-color: #a5a9ac;
+     padding: 5rem 0rem 1rem 0rem;
+
+     p{
+          width: 60%;
+          font-size: 1.5rem;
+          color: #28394e;
+     }
+} */
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -120,13 +148,13 @@ body {background-color: #384b64;}
      display: flex;
      flex-direction: column;
      justify-content: center;
-     width: 45%;
-     padding-left: 5rem;     
+     width: 50%;
+     padding-left: 6rem;     
 }
 
 #conteinerUmSessaoDois h1
 {
-     color: white;
+     color: #1d2b3b;
      font-size: 5rem;
      font-weight: 300;
 }
@@ -134,9 +162,9 @@ body {background-color: #384b64;}
 #conteinerUmSessaoDois p
 {
      margin-top: 3rem;
-     font-size: 1.6rem;
-     font-weight: 200;
-     color: white;
+     font-size: 1.8rem;
+     font-weight: 300;
+     color:  #1d2b3b;
      text-align: left;
      flex-wrap: wrap;
 }
@@ -147,7 +175,7 @@ body {background-color: #384b64;}
      flex-direction: column;
      justify-content: flex-end;
      align-items: flex-end;
-     width: 55%;
+     width: 50%;
 
 }
 
@@ -164,6 +192,9 @@ body {background-color: #384b64;}
      width: 100%;
      height: 100%;
 }
+
+
+
 
 
 
@@ -190,12 +221,12 @@ body {background-color: #384b64;}
      flex-direction: row;
      height: 15%;
      width: 80%;
-     padding-top: 2rem;
+     padding-top: 3rem;
 }
 
 #conteinerUmSessaotres h1
 {
-     color: #384b64;
+     color: #1d2b3b;
      font-size: 4.5rem;
      font-weight: 300;
 }
@@ -234,19 +265,19 @@ body {background-color: #384b64;}
      flex-direction: column;
      justify-content: center;
      align-items: center;
-     color: #384b64;
+     color: #1d2b3b;
      align-items: center;
      flex: 0 0 auto;
      width: 30%;
-     border: 1px solid #384b64;
+     border: 1px solid #1d2b3b;
      border-radius: 2.5rem;
-     padding: 2rem;
-     
+     padding: 4rem 3rem 4rem 3rem;
+     gap: 2rem;
 
      img{
           width: 15rem;
           height: 15rem;
-          padding: 3rem;
+          
      }
 }
 
@@ -259,7 +290,7 @@ body {background-color: #384b64;}
 {
      font-size: 6rem;
      text-decoration: none;
-     color: #384b64;
+     color: #1d2b3b;
      transition: all 0.3s ease-in-out;
 }
 #carrossel a:hover

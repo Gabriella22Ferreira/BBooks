@@ -46,7 +46,7 @@ header
 #conteinerNav h1
 {
      font-size: 2rem;
-     color: #384B64;
+     color: #181d24;
      text-decoration: none;
      font-weight: 300;
      cursor: pointer;
@@ -66,7 +66,7 @@ header
      font-size: 1.3rem;
      font-weight: 500;
      text-decoration: none;
-     color: #384B64;
+     color: #1d2b3b;
      cursor: pointer;
 }
 
@@ -80,7 +80,7 @@ header
 
 #btnUm, #btnDois
 {
-     border: 1px solid #384B64;
+     border: 1px solid #1d2b3b;
      border-radius: 0.2rem;
      height: 2rem;
      width: 7.5rem;
@@ -89,7 +89,7 @@ header
      text-decoration: none;
      cursor: pointer;
      background-color: var(---corHeader);
-     color: #2c3f58;
+     color: #1d2b3b;
      transition: all 0.5s ease-in-out;
      
 }
@@ -97,7 +97,7 @@ header
 #btnUm:hover, #btnDois:hover
 {
      transition: all 0.5s  ease-in-out;
-     background-color: #384B64;
+     background-color: #1d2b3b;
      color: #cfd5dd;
 
 }
