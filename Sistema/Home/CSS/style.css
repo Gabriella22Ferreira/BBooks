@@ -242,7 +242,6 @@ body {background-color: #384b64;}
      justify-content: center;
      align-items: center;
      color: #1d2b3b;
-     align-items: center;
      flex: 0 0 auto;
      width: 25%;
      border: 1px solid #1d2b3b;
@@ -253,12 +252,13 @@ body {background-color: #384b64;}
 
      img{
           width: 15rem;
-          height: 15rem;
-          
+          height: 15rem;  
      }
      p{
           font-size: 1.1rem;
-
+          text-transform: uppercase;
+          text-align: center;
+          font: 800;
      }
 }
 
@@ -356,16 +356,22 @@ body {background-color: #384b64;}
 {
      display: flex;
      margin-top: 2rem;
+     flex-direction: column;
      justify-content: center;
      align-items: center;
      border: 2px solid #111c29;
      border-radius: 2rem;
-     height: 18rem;
+     height: 20rem;
      width: 18rem;
 
+     p{
+          font-size: 1.5rem;
+          font-weight: 800;
+          text-transform: uppercase;
+     }
      img{
-          height: 100%;
-          width: 100%;
+          height: 60%;
+          width: 70%;
      }
 }
 
