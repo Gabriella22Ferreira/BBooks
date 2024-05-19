@@ -50,18 +50,13 @@
         const senha = ipt_senha.value;
 
 
-        if(email == "gabriella@gmail.com" || senha == "Gabi1234")
+        if(email == "gabriella@gmail.com" && senha == "Gabi1234")
         {
-            mensagem.innerHTML = `Sua senha e seu e-mail são inválidos`
-        }
-        else if(email == "" || senha == "")
-        {
-            mensagem.innerHTML = `Preencha todos os campos`
+            window.location.href = "../Usuário/telaInicial.html";
         }
         else
         {
-
-            window.location.href = "../Usuário/telaInicial.html";
+            mensagem.innerHTML = `Sua senha e seu e-mail são inválidos`
         }
         
     }
