@@ -252,13 +252,12 @@ body {background-color: #384b64;}
 
      img{
           width: 15rem;
-          height: 15rem;  
+          height: 15rem;
+          
      }
      p{
           font-size: 1.1rem;
-          text-transform: uppercase;
-          text-align: center;
-          font: 800;
+
      }
 }
 
@@ -284,7 +283,8 @@ body {background-color: #384b64;}
 
      p{
           font-size: 1.5rem;
-          text-transform: uppercase;          font-weight: 500;
+          text-transform: uppercase;         
+          font-weight: 500;
      }
 }
 
@@ -355,23 +355,23 @@ body {background-color: #384b64;}
 #cardOnu
 {
      display: flex;
-     margin-top: 2rem;
      flex-direction: column;
      justify-content: center;
      align-items: center;
      border: 2px solid #111c29;
-     border-radius: 2rem;
-     height: 20rem;
+     border-radius: 2.5rem;
+     height: 22rem;
      width: 18rem;
 
      p{
           font-size: 1.5rem;
           font-weight: 800;
+          text-align: center;
           text-transform: uppercase;
      }
      img{
           height: 60%;
-          width: 70%;
+          width: 90%;
      }
 }
 
