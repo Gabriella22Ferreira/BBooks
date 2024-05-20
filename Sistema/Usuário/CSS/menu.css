@@ -24,7 +24,7 @@ header
     justify-content: center;
     align-items: center;
     background-color: #b2b9becb;
-    position: fixed;
+    position: sticky;
  
 }
 
