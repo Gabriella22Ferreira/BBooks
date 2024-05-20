@@ -9,7 +9,11 @@
      overflow-x: hidden;
 }
 
-body{background-color: #d5d7daa2;}
+body
+{
+    background-color: #c7ccd3a2;
+    
+}
 
 header
 {
@@ -19,7 +23,7 @@ header
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #c3c9cecb;
+    background-color: #b2b9becb;
     position: fixed;
  
 }
