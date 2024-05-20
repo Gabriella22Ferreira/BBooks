@@ -43,6 +43,7 @@
                 <label>Confirmação de senha:</label>
                 <input type="password" placeholder="Confirme a Senha" id="ipt_confirmacaoSenha">
             </form>
+            <div id="mensagemErro"></div>
                 <button id="btnEntrar" onclick="cadastrar()"> CADASTRAR </button>
                 <div id="link">
                     <a href="../Login/Login.html">Tem conta?Entre!</a>
@@ -65,34 +66,61 @@
         const senha = ipt_senha.value;
         const confirmacao = ipt_confirmacaoSenha.value;
 
-        if(nome == "" || sobrenome == "" || idade == "" || email == "" ||  senha == "" ||  confirmacao== "" )
-        {
-            mensagemPreencher.innerHTML = ` Preencha todos os campos!`
-        }
-        else
-        {
-            let emailNaoTemArroba = email.indexOf('@');
-            let emailSemPonto = indexOf('.');
+        let valoresVazios = nome == "" || email == "" || senha == "" || confirmacaoSenha == "" || token == "";
+        let nomeMinimo = nome.length < 1;
+        let contemArrobaPonto = email.indexOf("@gmail.com") > -1 || email.indexOf("@hotmail.com") > -1 || email.indexOf("@outlook.com") > -1;
+        let senhaCaracteresMinimos = senha.length < 8;
+        let senhaContemNumero = false;
 
-            if(senha.length < 6)
+        // Laço de Repetição para verificação de números na senha.
+        for (let contadorNumero = 0; contadorNumero < senha.length; contadorNumero++) 
+        {
+            for (let contadorIndex = 0; contadorIndex < 9; contadorIndex++) 
             {
-                mensagem.innerHTML = `A senha deve ter no minimo 6 digitos!`
-            }
-            else if (senha != confirmacaoSenha)
-            {
-                mensagem.innerHTML = `As senhas estão diferentes!`
-            }
-            else if (idade.length > 2)
-            {
-                mensagem.innerHTML = `É improvável que você tenha mais de 100 anos`
-            }
-            else if(emailNaoTemArroba || emailSemPonto)
-            {
-                mensagem.innerHTML = `E-mail inválido!`
+                if (senha.indexOf(contadorIndex) != -1) 
+                {
+                    senhaContemNumero = true;
+                }
             }
         }
 
+        if (valoresVazios) 
+        {
+        // Teste de valores vazios
+            mensagemErro.innerHTML = "Todos os campos precisam estar preenchidos.";
+         } 
+         else if (nomeMinimo) 
+         {
+            // Teste de nome com pelo menos um caractere.
+            mensagemErro.innerHTML = "Nome inválido.";
+        } 
+        else if (contemArrobaPonto == false) 
+        {
+            // Teste de @ e . no Email
+            mensagemErro.innerHTML = "E-Mail inválido.";
+        }
+        else if (senhaCaracteresMinimos) 
+        {
+            // Teste de Tamanho mínimo da Senha
+            mensagemErro.innerHTML = "Senha inválida.";
+        }
+        else if (confirmacaoSenha != senha) 
+        {
+            // Teste de confirmação Senha = Senha
+            mensagemErro.innerHTML = "Senhas não coincidem.";
+        } 
+        else if (senhaContemNumero == false) 
+        {
+            // Teste de conter número na senha 
+            mensagemErro.innerHTML = "Erro. Senha não contém número.";
+        } 
+        else 
+        {
+            alert("Usuário Cadastrado!");
+            window.location.href = "../Login/Login.html";
 
+            // Falta redirecionamento para tela de login.
+        }
 
        
 
