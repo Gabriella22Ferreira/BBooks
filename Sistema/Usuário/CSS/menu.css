@@ -24,7 +24,7 @@ header
     justify-content: center;
     align-items: center;
     background-color: #b2b9becb;
-    position: sticky;
+    /* position: sticky; */
  
 }
 
@@ -69,7 +69,7 @@ header
     }
 
     a{
-         display: flex;
+        display: flex;
         padding-left: 2rem; 
         text-align: left;
         font-size: 1.2rem;
