@@ -18,13 +18,13 @@ body
 header
 {
     height: 100vh;
-    width: 38vh;
+    width: 40vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #b2b9becb;
-    /* position: sticky; */
+    position: sticky;
  
 }
 
