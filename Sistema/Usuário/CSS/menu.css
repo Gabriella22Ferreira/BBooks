@@ -111,4 +111,8 @@ header
             transition: all 50ms ease-in-out;   
         }
     }
+
+    img{
+        width: 15%;
+    }
 }
