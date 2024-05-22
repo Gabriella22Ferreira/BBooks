@@ -49,8 +49,14 @@
                 </div>
             </div>
             <div id="linhaBlocoInferior">
-                <div id="blocoInferiorUm"></div>
-                <div id="blocoInferiorDois"></div>
+                <div id="blocoInferiorUm">
+                    <canvas>
+
+                    </canvas>
+                </div>
+                <div id="blocoInferiorDois">
+                    <p>fhwioehgwrhg0whgihgnvjnv</p>
+                </div>
 
             </div>
         </div>
@@ -58,3 +64,54 @@
 
 </body>
 </html>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+    const canvas = document.getElementById('myChart');
+    const ctx = canvas.getContext('2d');
+
+    // Dados para o gráfico
+    const data = [12, 19, 3, 5, 2, 3];
+    const labels = ['1° Bimestre', '2° Bimestre', '3° Bimestre', '4°Bimestre'];
+
+    // Configurações do gráfico
+    const barWidth = 40;
+    const barSpacing = 10;
+    const chartHeight = 300;
+    const chartWidth = 500;
+    const xOffset = 50;
+    const yOffset = 50;
+
+    // Encontrar o valor máximo no conjunto de dados
+    const maxValue = Math.max(...data);
+
+    // Desenhar o eixo Y
+    ctx.beginPath();
+    ctx.moveTo(xOffset, yOffset);
+    ctx.lineTo(xOffset, yOffset + chartHeight);
+    ctx.stroke();
+
+    // Desenhar o eixo X
+    ctx.beginPath();
+    ctx.moveTo(xOffset, yOffset + chartHeight);
+    ctx.lineTo(xOffset + chartWidth, yOffset + chartHeight);
+    ctx.stroke();
+
+    // Desenhar as barras
+    data.forEach((value, index) => {
+        const barHeight = (value / maxValue) * chartHeight;
+        const x = xOffset + (barWidth + barSpacing) * index;
+        const y = yOffset + chartHeight - barHeight;
+
+        ctx.fillStyle = '#4caf50';
+        ctx.fillRect(x, y, barWidth, barHeight);
+
+        // Adicionar rótulos de texto
+        ctx.fillStyle = '#000';
+        ctx.fillText(labels[index], x + barWidth / 2 - ctx.measureText(labels[index]).width / 2, yOffset + chartHeight + 20);
+        ctx.fillText(value, x + barWidth / 2 - ctx.measureText(value).width / 2, y - 10);
+    });
+});
+
+</script>
