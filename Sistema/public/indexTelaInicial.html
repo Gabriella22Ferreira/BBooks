@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/telaInicial.css">
-    <link rel="stylesheet" href="CSS/menu.css">
+    <link rel="stylesheet" href="CSS/styleTelaInicial.css">
+    <link rel="stylesheet" href="CSS/stylePadraoMenu.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>BBOOKS</title>
@@ -17,15 +17,15 @@
         </div>
         <div id="navegacao">
             <ul>
-                <a href="telaInicial.html">Meu desempenho</a>
-                <a href="cadastroLivro.html">Meus livros</a>
-                <a href="planoLeitura.html">Meus planos</a>
-                <a href="configuracoesUsuario.html">Configurações</a>
+                <a href="indexTelaInicial.html">Meu desempenho</a>
+                <a href="indexCadastroLivro.html">Meus livros</a>
+                <a href="indexPlanoLeitura.html">Meus planos</a>
+                <a href="indexConfiguracoesUsuario.html">Configurações</a>
             </ul>
         </div>
         <div id="saida">
             <img src="IMG/porta.png">
-            <a href="../Home/index.html">Sair</a>
+            <a href="indexHome.html">Sair</a>
         </div>
     </header>
 
@@ -68,162 +68,5 @@
 </html>
 
 <script>
-
-    const grafico = document.getElementById('graficoAnual');
-
-const config = {
-  type: 'line',
-  data: data,
-  options: {
-    plugins: {
-      title: {
-        display: true,
-        text: 'Chart.js Stacked Line/Bar Chart'
-      }
-    },
-    scales: {
-      y: {
-        stacked: true
-      }
-    }
-  },
-};
-
-const DATA_COUNT = 7;
-const NUMBER_CFG = {count: DATA_COUNT, min: 0, max: 100};
-
-const labels = Utils.months({count: 7});
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: Utils.numbers(NUMBER_CFG),
-      borderColor: Utils.CHART_COLORS.red,
-      backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
-      stack: 'combined',
-      type: 'bar'
-    },
-    {
-      label: 'Dataset 2',
-      data: Utils.numbers(NUMBER_CFG),
-      borderColor: Utils.CHART_COLORS.blue,
-      backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
-      stack: 'combined'
-    }
-  ]
-};
-
-const actions = [
-  {
-    name: 'Randomize',
-    handler(chart) {
-      chart.data.datasets.forEach(dataset => {
-        dataset.data = Utils.numbers({count: chart.data.labels.length, min: 0, max: 100});
-      });
-      chart.update();
-    }
-  },
-  {
-    name: 'Add Dataset',
-    handler(chart) {
-      const data = chart.data;
-      const dsColor = Utils.namedColor(chart.data.datasets.length);
-      const newDataset = {
-        label: 'Dataset ' + (data.datasets.length + 1),
-        backgroundColor: Utils.transparentize(dsColor, 0.5),
-        borderColor: dsColor,
-        borderWidth: 1,
-        stack: 'combined',
-        data: Utils.numbers({count: data.labels.length, min: 0, max: 100}),
-      };
-      chart.data.datasets.push(newDataset);
-      chart.update();
-    }
-  },
-  {
-    name: 'Add Data',
-    handler(chart) {
-      const data = chart.data;
-      if (data.datasets.length > 0) {
-        data.labels = Utils.months({count: data.labels.length + 1});
-
-        for (let index = 0; index < data.datasets.length; ++index) {
-          data.datasets[index].data.push(Utils.rand(0, 100));
-        }
-
-        chart.update();
-      }
-    }
-  },
-  {
-    name: 'Remove Dataset',
-    handler(chart) {
-      chart.data.datasets.pop();
-      chart.update();
-    }
-  },
-  {
-    name: 'Remove Data',
-    handler(chart) {
-      chart.data.labels.splice(-1, 1); // remove the label first
-
-      chart.data.datasets.forEach(dataset => {
-        dataset.data.pop();
-      });
-
-      chart.update();
-    }
-  }
-];
-
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     const canvas = document.getElementById('myChart');
-//     const ctx = canvas.getContext('2d');
-
-//     // Dados para o gráfico
-//     const data = [12, 19, 3, 5, 2, 3];
-//     const labels = ['1° Bimestre', '2° Bimestre', '3° Bimestre', '4°Bimestre'];
-
-//     // Configurações do gráfico
-//     const barWidth = 40;
-//     const barSpacing = 10;
-//     const chartHeight = 300;
-//     const chartWidth = 500;
-//     const xOffset = 50;
-//     const yOffset = 50;
-
-//     // Encontrar o valor máximo no conjunto de dados
-//     const maxValue = Math.max(...data);
-
-//     // Desenhar o eixo Y
-//     ctx.beginPath();
-//     ctx.moveTo(xOffset, yOffset);
-//     ctx.lineTo(xOffset, yOffset + chartHeight);
-//     ctx.stroke();
-
-//     // Desenhar o eixo X
-//     ctx.beginPath();
-//     ctx.moveTo(xOffset, yOffset + chartHeight);
-//     ctx.lineTo(xOffset + chartWidth, yOffset + chartHeight);
-//     ctx.stroke();
-
-//     // Desenhar as barras
-//     data.forEach((value, index) => {
-//         const barHeight = (value / maxValue) * chartHeight;
-//         const x = xOffset + (barWidth + barSpacing) * index;
-//         const y = yOffset + chartHeight - barHeight;
-
-//         ctx.fillStyle = '#4caf50';
-//         ctx.fillRect(x, y, barWidth, barHeight);
-
-//         // Adicionar rótulos de texto
-//         ctx.fillStyle = '#000';
-//         ctx.fillText(labels[index], x + barWidth / 2 - ctx.measureText(labels[index]).width / 2, yOffset + chartHeight + 20);
-//         ctx.fillText(value, x + barWidth / 2 - ctx.measureText(value).width / 2, y - 10);
-//     });
-// });
 
 </script>

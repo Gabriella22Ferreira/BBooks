@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="../padrao.css">
+    <link rel="stylesheet" href="CSS/styleLogin.css">
+    <link rel="stylesheet" href="CSS/stylePadraoNavbar.css">
 
     <title>BBooks login</title>
 </head>
@@ -13,13 +13,13 @@
         <div id="conteinerNav">
             <h1>BBOOKS</h1>
             <div id="itensNav">
-                <a href="../Home/index.html">HOME</a>
-                <a href="../Home/index.html">SOBRE</a>
-                <a href="../Home/index.html">CONTATO</a>
+                <a href="indexHome.html">HOME</a>
+                <a href="indexHome.html">SOBRE</a>
+                <a href="indexHome.html">CONTATO</a>
             </div>
             <div id="buttonsNav">
-                <a href="../Login/Login.html"><button id="btnUm">LOGIN</button></a> 
-                <a href="../Cadastro/cadastro.html"><button id="btnDois">CADASTRO</button></a>
+                <a href="indexLogin.html"><button id="btnUm">LOGIN</button></a> 
+                <a href="indexCadastro.html"><button id="btnDois">CADASTRO</button></a>
             </div>
         </div>
     </header>
@@ -36,7 +36,7 @@
                 <button id="btnEntrar" onclick="entrar()"> ENTRAR </button>
                 <div id="links">
                     <a href="#">Esqueceu a senha?</a>
-                    <a href="../Cadastro/cadastro.html">Sem conta?Crie uma!</a>
+                    <a href="indexCadastro.html">Sem conta?Crie uma!</a>
                 </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
 
         if(email == "gabriella@gmail.com" && senha == "Gabi1234")
         {
-            window.location.href = "../Usuário/telaInicial.html";
+            window.location.href = "indexTelaInicial.html";
         }
         else
         {
