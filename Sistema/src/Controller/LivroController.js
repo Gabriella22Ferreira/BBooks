@@ -1,7 +1,7 @@
-var usuarioModel = require("../Models/UsuarioModel");
+var livroModel = require("../Models/LivroModal");
 
 function listar(req, res) {
-    usuarioModel.listar().then(function (resultado) {
+    livroModel.listar().then(function (resultado) {
         res.json(resultado);
     }).catch(function (erro) {
         res.status(500).json(erro.sqlMessage);
@@ -9,11 +9,11 @@ function listar(req, res) {
 }
 
 function cadastrar(req, res) {
-    var nome = req.body.nome;
-    var email = req.body.email;
-    var senha = req.body.senha;
+    var titulo = req.body.titulo;
+    var autor = req.body.autor;
+    var usuario_id = req.body.usuario_id;
 
-    usuarioModel.cadastrar(nome, email, senha).then(function (resultado) {
+    livroModel.cadastrar(titulo, autor, usuario_id).then(function (resultado) {
         res.json(resultado);
     }).catch(function (erro) {
         res.status(500).json(erro.sqlMessage);
