@@ -14,15 +14,6 @@ function autenticar()
     }
     else
     {
-        usuarioModel.autenticar(email, senha).then(
-            function(respostaAutenticacao){
-                console.log(`Resultados encontrados: ${respostaAutentucacao.length}`);
-                console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
-
-                if(respostaAutenticacao.length == 1){
-                    console.log(respostaAutenticar);
-
-                    usuarioModel.buscarUsuario(respostaAutenticacao[0].idUsuario).then()
-                }
-        )          
+        
+                 
 }}
