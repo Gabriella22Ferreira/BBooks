@@ -5,8 +5,7 @@ var livroController = require("../Controllers/LivroController");
 
 router.post("/cadastrar", function (req, res) {
     livroController.cadastrarLivro(req, res);
-})
-
+});
 
 
 module.exports = router;
