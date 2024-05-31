@@ -69,11 +69,11 @@
         let senhaContemNumero = false;
 
         // Laço de Repetição para verificação de números na senha.
-        for (let contadorNumero = 0; contadorNumero < senha.length; contadorNumero++) 
+        for (let i = 0; i < senha.length; i++) 
         {
-            for (let contadorIndex = 0; contadorIndex < 9; contadorIndex++) 
+            for (let contador = 0; contador < 9; contador++) 
             {
-                if (senha.indexOf(contadorIndex) != -1) 
+                if (senha.indexOf(contador) != -1) 
                 {
                     senhaContemNumero = true;
                 }
@@ -113,7 +113,7 @@
         else 
         {
 
-           fetch('UsuarioController/cadastrar', 
+           fetch('usuario/cadastrar', 
            {
                 method: 'POST',
                 headers: 
