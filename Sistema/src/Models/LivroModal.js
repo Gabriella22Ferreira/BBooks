@@ -14,7 +14,16 @@ function cadastrarLivro(titulo, autor, usuario_id) {
     return database.executar(instrucao);
 }
 
+function deletarLivro(){
+    var instrucao = `
+    DELETE FROM Livro WHERE id = ?
+    `;
+    return database.executar(instrucao);
+}
+
+
 module.exports = {
     listar,
-    cadastrarLivro
+    cadastrarLivro,
+    deletarLivro
 };
