@@ -15,13 +15,17 @@ var HOST_APP = process.env.APP_HOST;
 
 var app = express();
 
-var indexRouter = require("./src/routes/index");
-var usuarioRouter = require("./src/routes/usuarios");
-var livroRouter = require("./src/routes/livros");;
+var indexRouter = require("./src/Routes/index");
+var usuarioRouter = require("./src/Routes/usuario");
+var livroRouter = require("./src/Routes/livro");;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")));
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public/indexHome.html"));
+  });
+
+  app.use(express.static(path.join(__dirname, "public",)));
 
 app.use(cors());
 
