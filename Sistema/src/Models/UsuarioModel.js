@@ -4,7 +4,6 @@ function login(){
     var instrucao = ``;
 }
 
-
 function listar() {
     var instrucao = `
         SELECT * FROM usuario;
@@ -14,7 +13,7 @@ function listar() {
 
 function cadastrar(nome, email, senha) {
     var instrucao = `
-        INSERT INTO usuario (nome, email, senha) VALUES ('${nome}', '${email}', '${senha}');
+        INSERT INTO Usuario (nome, email, senha) VALUES ('${nome}', '${email}', '${senha}');
     `;
     return database.executar(instrucao);
 }
