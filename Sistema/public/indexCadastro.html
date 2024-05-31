@@ -13,13 +13,13 @@
         <div id="conteinerNav">
             <h1>BBOOKS</h1>
             <div id="itensNav">
-                <a href="../Home/index.html">HOME</a>
-                <a href="../Home/index.html">SOBRE</a>
-                <a href="../Home/index.html">CONTATO</a>
+                <a href="indexHome.html">HOME</a>
+                <a href="indexHome.html">SOBRE</a>
+                <a href="indexHome.html">CONTATO</a>
             </div>
             <div id="buttonsNav">
-                <a href="../Login/Login.html"><button id="btnUm">LOGIN</button></a> 
-                <a href="../Cadastro/cadastro.html"><button id="btnDois">CADASTRO</button></a>
+                <a href="indexLogin.html"><button id="btnUm">LOGIN</button></a> 
+                <a href="indexCadastro.html"><button id="btnDois">CADASTRO</button></a>
             </div>
         </div>
     </header>
@@ -29,13 +29,9 @@
         <div id="form">
             <h1>CADASTRO</h1>
             <p>É sempre bom ter mais o que compartilhar e aprender!</p>
-            <form action="cadastro.js" method="post">
+            <form>
                 <label>Nome:</label>
                 <input type="text" placeholder="Nome" id="ipt_nome">
-                <label>Sobrenome:</label>
-                <input type="text" placeholder="Sobrenome" id="ipt_sobrenome">
-                <label>Idade:</label>
-                <input type="number" min="1" placeholder="Idade" id="ipt_idade">
                 <label>E-mail:</label>
                 <input type="text" placeholder="E-mail" id="ipt_email"> 
                 <label>Senha:</label>
@@ -43,10 +39,10 @@
                 <label>Confirmação de senha:</label>
                 <input type="password" placeholder="Confirme a Senha" id="ipt_confirmacaoSenha">
             </form>
-            <div id="mensagemErro"></div>
+            <div id="menErro"></div>
                 <button id="btnEntrar" onclick="cadastrar()"> CADASTRAR </button>
                 <div id="link">
-                    <a href="../Login/Login.html">Tem conta?Entre!</a>
+                    <a href="indexLogin.html">Tem conta?Entre!</a>
                 </div>
 
         </div>
@@ -60,16 +56,15 @@
     function cadastrar()
     {
         const nome = ipt_nome.value;
-        const sobrenome = ipt_sobrenome.value;
-        const idade = Number(ipt_idade.value);
         const email = ipt_email.value;
         const senha = ipt_senha.value;
         const confirmacao = ipt_confirmacaoSenha.value;
 
-        let valoresVazios = nome == "" || email == "" || senha == "" || confirmacaoSenha == "" || token == "";
+        let valoresVazios = nome == "" || email == "" || senha == "" || confirmacaoSenha == "";
         let nomeMinimo = nome.length < 1;
         let contemArrobaPonto = email.indexOf("@gmail.com") > -1 || email.indexOf("@hotmail.com") > -1 || email.indexOf("@outlook.com") > -1;
         let senhaCaracteresMinimos = senha.length < 8;
+        let senhaTamanhoCorreta = confirmacao < senha.length
         let senhaContemNumero = false;
 
         // Laço de Repetição para verificação de números na senha.
@@ -87,43 +82,76 @@
         if (valoresVazios) 
         {
         // Teste de valores vazios
-            mensagemErro.innerHTML = "Todos os campos precisam estar preenchidos.";
+            menErro.innerHTML = "Todos os campos precisam estar preenchidos.";
          } 
          else if (nomeMinimo) 
          {
             // Teste de nome com pelo menos um caractere.
-            mensagemErro.innerHTML = "Nome inválido.";
+            menErro.innerHTML = "Nome inválido.";
         } 
         else if (contemArrobaPonto == false) 
         {
             // Teste de @ e . no Email
-            mensagemErro.innerHTML = "E-Mail inválido.";
+            menErro.innerHTML = "E-Mail inválido.";
         }
         else if (senhaCaracteresMinimos) 
         {
             // Teste de Tamanho mínimo da Senha
-            mensagemErro.innerHTML = "Senha inválida.";
+            menErro.innerHTML = "Senha inválida.";
         }
         else if (confirmacaoSenha != senha) 
         {
             // Teste de confirmação Senha = Senha
-            mensagemErro.innerHTML = "Senhas não coincidem.";
+            menErro.innerHTML = "Senhas não coincidem.";
         } 
         else if (senhaContemNumero == false) 
         {
             // Teste de conter número na senha 
-            mensagemErro.innerHTML = "Erro. Senha não contém número.";
+            menErro.innerHTML = "Erro. Senha não contém número.";
         } 
         else 
         {
-            alert("Usuário Cadastrado!");
-            window.location.href = "../Login/Login.html";
 
-            // Falta redirecionamento para tela de login.
-        }
+           fetch('UsuarioController/cadastrar', 
+           {
+                method: 'POST',
+                headers: 
+                {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nome: nome,
+                    email: email,
+                    senha: senha
+                })
+            })
+            .then(function (resposta) 
+            {
+                console.log("resposta: ", resposta);
 
-       
+                if (resposta.ok) 
+                {
+                    menErro.innerHTML =
+                    "Cadastrado com sucesso!";
 
+                    setTimeout(() => {
+                    window.location.href = "indexLogin.html";
+                    }, "2000");
+                    // limparFormulario();
+                    // finalizarAguardar();
+                } 
+                else 
+                {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        //   finalizarAguardar();
+        });
+
+      return false;
     }
+  }
 
 </script>
