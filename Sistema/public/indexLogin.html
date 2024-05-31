@@ -51,14 +51,96 @@
         const senha = ipt_senha.value;
 
 
-        if(email == "gabriella@gmail.com" && senha == "Gabi1234")
+        let valoresVazios = email == "" || senha == "";
+        let contemArrobaPonto = email.indexOf("@") == -1 || email.indexOf(".") == -1;
+        let senhaCaracteresMinimos = senha.length < 8;
+        let senhaContemNumero = false;
+
+    // Laço de Repetição para verificação de números na senha.
+        for (let i = 0; i < senha.length; i++) 
         {
-            window.location.href = "indexTelaInicial.html";
+            for (let contador = 0; contador < 9; contador++) {
+                if (senha.indexOf(contador) != -1) {
+                    senhaContemNumero = true;
+                }
+            }
         }
-        else
-        {
-            mensagem.innerHTML = `Sua senha e seu e-mail são inválidos`
-        }
+
         
+    if (valoresVazios)
+    {
+      menErro.innerHTML = "Todos os campos precisam estar preenchidos.";
+    }
+    else if (contemArrobaPonto) 
+    {
+      menErro.innerHTML = "E-Mail inválido.";
+    } 
+    else if (senhaCaracteresMinimos) 
+    {
+      menErro.innerHTML = "Senha inválida.";
+    } 
+    else if (senhaContemNumero == false) 
+    {
+      menErro.innerHTML = "Erro. Senha não contém número.";
+    }
+
+    console.log("FORM LOGIN: ", email);
+    console.log("FORM SENHA: ", senha);
+
+    fetch("/usuarios/autenticar", 
+    {
+        method: "POST",
+        headers: 
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: email,
+            senhaServer: senha
+        })
+    })
+    .then(function (resposta) 
+    {
+      console.log("ESTOU NO THEN DO entrar()!")
+
+      if (resposta.ok) 
+      {
+        console.log(resposta);
+
+        resposta.json().then(json => 
+        {
+          console.log(json);
+          console.log(JSON.stringify(json));
+          sessionStorage.EMAIL_USUARIO = json.email;
+          sessionStorage.NOME_USUARIO = json.nome;
+          sessionStorage.SENHA_USUARIO = json.senha;
+          sessionStorage.ID_USUARIO = json.id;
+        //   sessionStorage.ESTUFAS = JSON.stringify(json.estufa)
+
+          setTimeout(function () {
+            window.location = "indexTelaInicial.html";
+          }, 1000);
+
+        });
+      }
+        else 
+        {
+        console.log("Houve um erro ao tentar realizar o login!");
+
+        resposta.text().then(texto => 
+        {
+          console.error(texto);
+          finalizarAguardar(texto);
+        });
+      }
+
+    }).catch(function (erro) 
+    {
+      console.log(erro);
+    })
+
+    return false;
+
+
     }
 </script>

@@ -121,9 +121,9 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    nome: nome,
-                    email: email,
-                    senha: senha
+                    nomeSever: nome,
+                    emailServer: email,
+                    senhaServer: senha
                 })
             })
             .then(function (resposta) 
@@ -138,7 +138,7 @@
                     setTimeout(() => {
                     window.location.href = "indexLogin.html";
                     }, "2000");
-                    // limparFormulario();
+                    limparFormulario();
                     // finalizarAguardar();
                 } 
                 else 
