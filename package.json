@@ -1,0 +1,11 @@
+{
+  "name": "blubooks",
+  "version": "1.0.0",
+  "description": "BluBooks se trata de um sistema que engloba toda a relação de pessoas com os livros, seja para conhce-los, procurar lugares onde estejam disponiveis como bibliotecas ou livrarias tanto fisicas como online e seus preços.\r Não só isso, o usuário poderá montar um conograma simples para uma leitura que ele deseja fazer, poderá classificar seus livros lidos, ter um local para destacar sua lista de interesse, ver comentários de outros usuários a respeito do livro, poderá ver em quantos % avançou no livro mesmo sem um cronograma montado.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
