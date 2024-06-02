@@ -1,0 +1,66 @@
+#conteinerDesempenhoNovo
+{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 90%;
+    margin-top: 2rem;
+}
+#linhaDireita{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100%;
+    width: 45%;
+    padding-right: 0.8rem;
+    gap: 2rem;
+}
+
+#linhaEsquerda
+{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    height: 100%;
+    
+}
+
+#infoTotais /*cards*/ {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid #222d3d;
+    border-radius: 1.5rem;
+    width: 65%;
+    height: 25%;
+    box-shadow: 1px 1px 2px 1px #111c29;
+
+    p{
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+}
+
+#cardLivro
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* color: #1d2b3b; */
+    /* flex: 0 0 auto; */
+    width: 25%;
+    border: 1px solid #1d2b3b;
+    border-radius: 4rem;
+    padding: 0rem 3rem 0rem 3rem;
+    gap: 2rem;
+    box-shadow: 2px 2px 8px 1px #111c29;
+
+    /* img{
+         width: 15rem;
+         height: 15rem;
+    }
+    p{
+         font-size: 1.1rem;
+    } */
+}
