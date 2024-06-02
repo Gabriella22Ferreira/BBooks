@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="CSS/styleTelaInicial.css">
     <link rel="stylesheet" href="CSS/stylePadraoMenu.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 
     <title>BBOOKS</title>
 </head>
@@ -51,13 +52,10 @@
             </div>
             <div id="linhaBlocoInferior">
                 <div id="blocoInferiorUm">
-                    <div>
-                        <canvas id="graficoAnual"></canvas>
-                      </div>
-                      
+                    <canvas id="meuGrafico"></canvas>                      
                 </div>
                 <div id="blocoInferiorDois">
-                    <p>fhwioehgwrhg0whgihgnvjnv</p>
+                    <p>BBooks é mais que um fórum literário!</p>
                 </div>
 
             </div>
@@ -69,4 +67,28 @@
 
 <script>
 
+    const ctx = document.getElementById('meuGrafico').getContext('2d');
+    const meuGrafico = new Chart(ctx, 
+    {
+        type: 'line',
+        data: 
+        {
+            labels: ['1°Bimestre', '2°Bimestre', '3°Bismestre', '4°Bismestre'],
+            datasets:
+            [{
+                label: 'Livros Lidos Anualmente ',
+                data: [23, 30, 16, 25],
+                backgroundColor: 'pink',
+                borderColor: 'purple',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 </script>
