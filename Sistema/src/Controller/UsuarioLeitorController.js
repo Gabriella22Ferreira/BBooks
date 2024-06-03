@@ -1,4 +1,4 @@
-var usuarioModel = require("../Models/UsuarioModel");
+var usuarioModel = require("../Models/UsuarioLeitorModel");
 
 function listar(req, res) {
     usuarioModel.listar().then(function (resultado) {

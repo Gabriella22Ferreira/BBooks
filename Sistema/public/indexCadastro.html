@@ -62,7 +62,7 @@
         const confirmacao = ipt_confirmacaoSenha.value;
         console.log(nome, email, senha, confirmacao);
 
-        let valoresVazios = nome == "" || email == "" || senha == "" || confirmacaoSenha == "";
+        let valoresVazios = nome == "" || email == "" || senha == "" || confirmacao == "";
         let nomeMinimo = nome.length < 1;
         let contemArrobaPonto = email.indexOf("@gmail.com") > -1 || email.indexOf("@hotmail.com") > -1 || email.indexOf("@outlook.com") > -1;
         let senhaCaracteresMinimos = senha.length < 8;
@@ -101,7 +101,7 @@
             // Teste de Tamanho mínimo da Senha
             menErro.innerHTML = "Senha inválida.";
         }
-        else if (confirmacaoSenha != senha) 
+        else if (confirmacao != senha) 
         {
             // Teste de confirmação Senha = Senha
             menErro.innerHTML = "Senhas não coincidem.";
