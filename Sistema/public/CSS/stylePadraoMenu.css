@@ -129,9 +129,10 @@ body
     #titulo{
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
+        justify-content: center;
+        align-items: flex-sta;
         width: 85%;
+        height: 14%;
         color: #222d3d;
     }    
     h1{
@@ -151,8 +152,8 @@ body
     flex-direction: column;
     align-items: center;
     width: 90%;
-    height: 80%;
-    margin-top: 2rem;
+    height: 86%;
+    margin-top: 1rem;
 
     #linhaSuperior
     {
