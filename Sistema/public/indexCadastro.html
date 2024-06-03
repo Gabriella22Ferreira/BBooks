@@ -83,32 +83,26 @@
 
         if (valoresVazios) 
         {
-        // Teste de valores vazios
             menErro.innerHTML = "Todos os campos precisam estar preenchidos.";
          } 
          else if (nomeMinimo) 
          {
-            // Teste de nome com pelo menos um caractere.
             menErro.innerHTML = "Nome inválido.";
         } 
         else if (contemArrobaPonto == false) 
         {
-            // Teste de @ e . no Email
             menErro.innerHTML = "E-Mail inválido.";
         }
         else if (senhaCaracteresMinimos) 
         {
-            // Teste de Tamanho mínimo da Senha
             menErro.innerHTML = "Senha inválida.";
         }
         else if (confirmacao != senha) 
         {
-            // Teste de confirmação Senha = Senha
             menErro.innerHTML = "Senhas não coincidem.";
         } 
         else if (senhaContemNumero == false) 
-        {
-            // Teste de conter número na senha 
+        { 
             menErro.innerHTML = "Erro. Senha não contém número.";
         } 
         else 
