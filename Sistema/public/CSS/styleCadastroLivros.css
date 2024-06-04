@@ -5,14 +5,16 @@
     justify-content: center;
     width: 99%;
     height: 85%;
+    margin-top: 1rem;
 }
 #linhaDireita{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: end;
+    justify-content: center;
     height: 100%;
-    width: 30%;
-    padding-right: 0.8rem;
+    width: 25%;
+    padding-right: 0.3rem;
     gap: 2rem;
 }
 
@@ -32,7 +34,7 @@
     background-color: white;
     border: 1px solid #222d3d;
     border-radius: 1.5rem;
-    width: 80%;
+    width: 90%;
     height: 25%;
     box-shadow: 1px 1px 2px 1px #111c29;
 
@@ -75,4 +77,28 @@
             font-size: 1.1rem;
     
     }
+}
+
+
+button
+{
+    margin-top: 40%;
+    border-radius: 2rem;
+    height: 2.5rem;
+    width: 15rem;
+    font-size: 1rem;
+    font-weight: 550;
+    cursor: pointer;
+    background-color: #384B64;
+    color: #fff;
+    border: 1px solid #384B64;
+    transition: all 0.5s ease-in-out;
+    text-transform: uppercase;
+}
+
+button:hover
+{   
+    background-color: var(---corHeader);
+    color: #2c3f58;
+    transition: all 0.5s  ease-in-out;
 }

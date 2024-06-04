@@ -7,9 +7,10 @@ function listar() {
     return database.executar(instrucao);
 }
 
-function cadastrarLivro(titulo, autor, usuario_id) {
+function cadastrarLivro(titulo, autor, genero, descricao, totalPaginas, avaliacao, status ) {
     var instrucao = `
-        INSERT INTO Livro (titulo, autor, usuario_id) VALUES ('${titulo}', '${autor}', '${usuario_id}');
+        INSERT INTO Livro (titulo, autor, genero, descricao, totalPaginas, avaliacao, status)
+        VALUES ('${titulo}', '${autor}', '${genero}', '${descricao}', '${totalPaginas}', '${avaliacao}', '${status}');
     `;
     return database.executar(instrucao);
 }

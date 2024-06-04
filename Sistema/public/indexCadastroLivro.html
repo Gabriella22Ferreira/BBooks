@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="CSS/styleCadastroLivros.css">
     <link rel="stylesheet" href="CSS/stylePadraoMenu.css">
 </head>
-<body>
+<body onload="validarSessao()">
     <header>
         <div id="titulosMenu">
             <h1>BBOOKS</h1>
-            <h2>Olá, nome</h2>
+            <h2>Olá, </h2><h2 id="b_usuario">nome</h2>
         </div>
         <div id="navegacao">
             <ul>
@@ -45,18 +45,15 @@
                     <div id="cardLivro">jiogjaeiorjgoiaejia</div>
                     <div id="cardLivro">jiogjaeiorjgoiaejia</div>
                 </div>
-                <!-- <div id="blocoInferiorDois"></div> -->
             </div>
             <div id="linhaDireita">
                 <div id="infoTotais">
-                    <p>Total Livros Cadastrados</p>
+                    <p>Total De Cadastrados</p>
                 </div>
                 <div id="infoTotais">
-                    <p>Gênero Com Mais Livros</p>
+                    <p>Gênero + Cadastrado</p>
                 </div>
-                <div id="infoTotais">
-                    <p>Qntd Cadastrada Mês</p>
-                </div>
+                <button onclick="cadastrarLivro()">Cadastrar Livro</button>
             </div>
         </div>
     </div>
@@ -64,5 +61,10 @@
 </html>
 
 <script>
+
+    function cadastrarLivro(){
+
+
+    }
 
 </script>

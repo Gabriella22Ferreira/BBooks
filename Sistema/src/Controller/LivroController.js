@@ -12,10 +12,12 @@ function cadastrarLivro(req, res) {
     var titulo = req.body.titulo;
     var autor = req.body.autor;
     var genero = req.body.genero;
+    var descricao = req.body.descricao;
     var totalPaginas = req.body.totalPaginas;
-    var usuario_id = req.body.usuario_id;
+    var avaliacao = req.body.avaliacao;
+    var status = req.body.status;
 
-    livroModel.cadastrarLivro(titulo, autor, genero, totalPaginas, usuario_id).then(function (resultado) {
+    livroModel.cadastrarLivro(titulo, autor, genero, descricao, totalPaginas, avaliacao, status).then(function (resultado) {
         res.json(resultado);
     }).catch(function (erro) {
         res.status(500).json(erro.sqlMessage);

@@ -3,7 +3,7 @@ var router = express.Router();
 
 var livroController = require("../Controller/LivroController");
 
-router.get("/cadastrar", function (req, res) {
+router.get("/cadastrarLivro", function (req, res) {
     livroController.cadastrarLivro(req, res);
 });
 
