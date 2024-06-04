@@ -12,36 +12,10 @@ function validarSessao() {
     if (email != null && nome != null && senha != null) {
         b_usuario.innerHTML = nome;
 
-        fetch("/Ususario/buscarNome", {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: email,
-                nomeServer: nome,
-                senhaServer: senha  
-            })
-        }).then(function (resposta) {
-            console.log("resposta: ", resposta);
-            if (resposta.ok) {
-                resposta.json().then(json => {
-                    console.log(json);
-                }).catch(function (erro) {
-                    console.log("Erro ao converter resposta para JSON: ", erro);
-                });
-            } else {
-                console.log("Erro na resposta do servidor: ", resposta.statusText);
-            }
-        }).catch(function (erro) {
-            console.log("Erro na requisição: ", erro);
-        });
-
     } else {
         window.location = "indexLogin.html";
     }
 }
-
 
 function limparSessao() {
     sessionStorage.clear();

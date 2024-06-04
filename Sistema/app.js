@@ -30,8 +30,8 @@ app.get("/", (req, res) => {
 app.use(cors());
 
 app.use("/", indexRouter);
-app.use("/usuarios", usuarioRouter);
-app.use("/livros", livroRouter);
+app.use("/usuario", usuarioRouter);
+app.use("/livro", livroRouter);
 
 
 app.listen(PORTA_APP, function () {

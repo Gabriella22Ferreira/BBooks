@@ -113,4 +113,10 @@ header
      color: #cfd5dd;
 
 }
+
+#menErro{
+     font-weight: 600;
+     color: red;
+     margin-bottom: 0.5rem;
+}
  

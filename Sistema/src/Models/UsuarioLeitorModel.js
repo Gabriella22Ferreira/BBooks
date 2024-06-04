@@ -1,7 +1,12 @@
 var database = require('../database/config');
 
-function login(){
-    var instrucao = ``;
+function loginAutenticar(email, senha)
+{
+    var instrucao = `select idUsuario, nome, email, senha
+                        from Usuario
+                        WHERE email = '${email}' AND senha = '${senha}';
+                        `;
+    return database.executar(instrucao);
 }
 
 function listar() {
@@ -20,5 +25,6 @@ function cadastrar(nome, email, senha) {
 
 module.exports = {
     listar,
-    cadastrar
+    cadastrar,
+    loginAutenticar
 };

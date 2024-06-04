@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/styleLogin.css">
     <link rel="stylesheet" href="CSS/stylePadraoNavbar.css">
+    <link href="JS/session.js">
 
     <title>BBooks login</title>
 </head>
@@ -50,7 +51,6 @@
         const email = ipt_email.value;
         const senha = ipt_senha.value;
 
-
         let valoresVazios = email == "" || senha == "";
         let contemArrobaPonto = email.indexOf("@") == -1 || email.indexOf(".") == -1;
         let senhaCaracteresMinimos = senha.length < 8;
@@ -66,7 +66,6 @@
             }
         }
 
-        
     if (valoresVazios)
     {
       menErro.innerHTML = "Todos os campos precisam estar preenchidos.";
@@ -87,7 +86,7 @@
     console.log("FORM LOGIN: ", email);
     console.log("FORM SENHA: ", senha);
 
-    fetch("/usuarios/autenticar", 
+    fetch("/usuario/loginAutenticar", 
     {
         method: "POST",
         headers: 
@@ -106,7 +105,6 @@
       if (resposta.ok) 
       {
         console.log(resposta);
-
         resposta.json().then(json => 
         {
           console.log(json);
@@ -115,32 +113,23 @@
           sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.SENHA_USUARIO = json.senha;
           sessionStorage.ID_USUARIO = json.id;
-        //   sessionStorage.ESTUFAS = JSON.stringify(json.estufa)
 
           setTimeout(function () {
             window.location = "indexTelaInicial.html";
           }, 1000);
-
         });
       }
         else 
         {
-        console.log("Houve um erro ao tentar realizar o login!");
-
-        resposta.text().then(texto => 
+          console.log("Houve um erro ao tentar realizar o login!");
+          resposta.text().then(texto => 
         {
-          console.error(texto);
-          finalizarAguardar(texto);
         });
       }
-
     }).catch(function (erro) 
     {
       console.log(erro);
     })
-
-    return false;
-
-
+      return false;
     }
 </script>

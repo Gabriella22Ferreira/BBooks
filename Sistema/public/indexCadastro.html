@@ -54,6 +54,11 @@
 
 <script>
 
+    function limparMenErro()
+    {
+        menErro.innerHTML = ` `;
+    }
+
     function cadastrar()
     {
         const nome = ipt_nome.value;
@@ -87,28 +92,34 @@
          } 
          else if (nomeMinimo) 
          {
+            limparMenErro();
             menErro.innerHTML = "Nome inválido.";
         } 
         else if (contemArrobaPonto == false) 
         {
+            limparMenErro();
             menErro.innerHTML = "E-Mail inválido.";
         }
         else if (senhaCaracteresMinimos) 
         {
+            limparMenErro();
             menErro.innerHTML = "Senha inválida.";
         }
         else if (confirmacao != senha) 
-        {
+        {   
+            limparMenErro();
             menErro.innerHTML = "Senhas não coincidem.";
         } 
         else if (senhaContemNumero == false) 
         { 
+            limparMenErro();
             menErro.innerHTML = "Erro. Senha não contém número.";
         } 
         else 
         {
+            limparMenErro();
 
-           fetch('usuario/cadastrar', 
+           fetch('/usuario/cadastrar', 
            {
                 method: 'POST',
                 headers: 
@@ -116,7 +127,7 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    nomeSever: nome,
+                    nomeServer: nome,
                     emailServer: email,
                     senhaServer: senha
                 })
