@@ -7,12 +7,12 @@ function listar() {
     return database.executar(instrucao);
 }
 
-function cadastrarLivro(titulo, autor, genero, descricao, totalPaginas, avaliacao, status ) {
+function cadastrarLivro(titulo, autor, genero, descricao, totalPaginas, avaliacao, status, image ) {
     var instrucao = `
-        INSERT INTO Livro (titulo, autor, genero, descricao, totalPaginas, avaliacao, status)
-        VALUES ('${titulo}', '${autor}', '${genero}', '${descricao}', '${totalPaginas}', '${avaliacao}', '${status}');
+        INSERT INTO Livro (titulo, autor, genero, descricao, totalPaginas, avaliacao, status, image)
+        VALUES (${titulo}, ${autor}, ${genero}, ${descricao}, ${totalPaginas}, ${avaliacao}, ${status}, ${image});
     `;
-    return database.executar(instrucao);
+    return database.executar(instrucao, [titulo, autor, genero, descricao, totalPaginas, avaliacao, status, image]);
 }
 
 function deletarLivro(){

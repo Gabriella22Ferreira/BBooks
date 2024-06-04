@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/styleCadastroLivros.css">
     <link rel="stylesheet" href="CSS/stylePadraoMenu.css">
-    <link href="JS/session.js">
+    <script src="JS/session.js"></script>
+
+
 </head>
 <body onload="validarSessao()">
     <header>
         <div id="titulosMenu">
             <h1>BBOOKS</h1>
-            <h2>Olá, </h2><h2 id="b_usuario">nome</h2>
+            <h2 id="b_usuario">Olá, nome</h2>
         </div>
         <div id="navegacao">
             <ul>
@@ -23,7 +25,7 @@
         </div>
         <div id="saida">
             <img src="IMG/porta.png">
-            <a href="indexHome.html">Sair</a>
+            <a href="indexHome.html" onload="limparSessao()">Sair</a>
         </div>
     </header>
 
@@ -66,15 +68,19 @@
                     <div id="modal-content">
                         <form id="formCadastroLivro">
                             <label>Título:</label>
-                            <input type="text" id="titulo"><br>
+                            <input type="text" id="ipt_titulo"><br>
+                            <label>Imagem:</label>
+                            <input type="file" id="ipt_imagemLivro">
+                            <label>Autor:</label>
+                            <input type="text" id="ipt_autor">
                             <label>Descrição:</label>
-                            <textarea type="text" id="descricao" maxlength="1500"></textarea><br>
+                            <textarea type="text" id="ipt_descricao" maxlength="1500"></textarea><br>
                             <label> Gênero:</label>
-                            <input type="text" id="genero"><br>
+                            <input type="text" id="ipt_genero"><br>
                             <label>Total de Páginas:</label>
-                            <input type="number" id="totalPaginas"><br>
+                            <input type="number" id="ipt_totalPaginas"><br>
                             <label>Avaliação:</label>
-                            <input type="number" id="avaliacao" min="1" max="5"><br>
+                            <input type="number" id="ipt_avaliacao" min="1" max="5"><br>
                             <label>Status da Leitura:</label>
                             <select id="statusLeitura">
                                 <option value="NaoLido">Não Lido</option>
@@ -96,13 +102,17 @@
 <script>
 
     function criacaoModal(){
-    
     // Cria a variável de conteúdo do modal 
     let modalContent = document.getElementById("modal-content");
     let overlay = document.getElementById("overlay");
     overlay.style.display = "block";
     let modal = document.getElementById("modal");
     modal.style.display = "block";
+    }
+
+    function cadastrarLivro(){
+
+        criacaoModal();
     }
 
     //Função que fecha o modal quando o "X" for clicado
@@ -116,12 +126,13 @@
         const form = document.getElementById("formCadastroLivro");
         const formData = new FormData(form);
 
-        fetch('/cadastrarLivro', {
+        fetch('/livro/cadastrarLivro', {
             method: 'POST',
-            body: JSON.stringify(Object.fromEntries(formData)),
-            headers: {
+            headers: 
+            {
                 'Content-Type': 'application/json'
-            }
+            },
+            body: JSON.stringify(Object.fromEntries(formData)),
         }).then(response => response.json())
           .then(data => {
               alert('Livro cadastrado com sucesso!');
@@ -130,16 +141,6 @@
               console.error('Erro ao cadastrar livro:', error);
               alert('Erro ao cadastrar livro.');
           });
-    }
-
-    function cadastrarLivro(){
-
-        criacaoModal();
-
-
-
-        fecharModal();
-        
     }
 
 </script>

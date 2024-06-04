@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/stylePlanoLeitura.css">
     <link rel="stylesheet" href="CSS/stylePadraoMenu.css">
+    <script src="JS/session.js"></script>
+
 </head>
-<body>
+<body onload="validarSessao()">
     <header>
         <div id="titulosMenu">
             <h1>BBOOKS</h1>
-            <h2>Olá, nome</h2>
+            <h2 id="b_usuario">Olá, nome</h2>
         </div>
         <div id="navegacao">
             <ul>
@@ -22,7 +24,7 @@
         </div>
         <div id="saida">
             <img src="IMG/porta.png">
-            <a href="indexHome.html">Sair</a>
+            <a href="indexHome.html" onload="limparSessao()">Sair</a>
         </div>
     </header>
 

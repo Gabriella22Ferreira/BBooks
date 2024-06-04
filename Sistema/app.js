@@ -19,6 +19,9 @@ var indexRouter = require("./src/Routes/index");
 var usuarioRouter = require("./src/Routes/usuarioLeitor");
 var livroRouter = require("./src/Routes/livro");;
 
+// Rota para arquivos estáticos (imagens)
+app.use('/uploads', express.static('uploads'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.get("/", (req, res) => {
