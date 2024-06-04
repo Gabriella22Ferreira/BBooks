@@ -25,7 +25,7 @@
         </div>
         <div id="saida">
             <img src="IMG/porta.png">
-            <a href="indexHome.html" onload="limparSessao()">Sair</a>
+            <a href="indexHome.html" onclick="limparSessao()">Sair</a>
         </div>
     </header>
 
@@ -69,24 +69,38 @@
                         <form id="formCadastroLivro">
                             <label>Título:</label>
                             <input type="text" id="ipt_titulo"><br>
+
                             <label>Imagem:</label>
                             <input type="file" id="ipt_imagemLivro">
+
                             <label>Autor:</label>
                             <input type="text" id="ipt_autor">
+
                             <label>Descrição:</label>
                             <textarea type="text" id="ipt_descricao" maxlength="1500"></textarea><br>
-                            <label> Gênero:</label>
-                            <input type="text" id="ipt_genero"><br>
+
+                            <label>Gênero:</label>
+                            <select id="ipt_genero">
+                                <option value="Ficção">Ficção</option>
+                                <option value="Não Ficção">Não Ficção</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Suspense">Suspense</option>
+                                <!-- Adicione mais opções conforme necessário -->
+                            </select><br>
+
                             <label>Total de Páginas:</label>
                             <input type="number" id="ipt_totalPaginas"><br>
+
                             <label>Avaliação:</label>
                             <input type="number" id="ipt_avaliacao" min="1" max="5"><br>
+
                             <label>Status da Leitura:</label>
                             <select id="statusLeitura">
                                 <option value="NaoLido">Não Lido</option>
                                 <option value="Lendo">Lendo</option>
                                 <option value="Lido">Lido</option>
                             </select><br>
+                            
                             <button type="button" onclick="enviarFormulario()">Cadastrar</button>
                         </form>
                         
@@ -101,46 +115,54 @@
 
 <script>
 
-    function criacaoModal(){
+    var titulo = ipt_titulo.value;
+    var autor = ipt_autor.value;
+    var image = ipt_imagemLivro.value;
+    var descricao = ipt_descricao.value;
+    var genero = ipt_genero.value;
+    var totalPaginas = Number(ipt_totalPaginas.value);
+    var avaliacao = Number(ipt_avaliacao.value);
+    var status = statusLeitura.value;
+
+
+    // Definindo as variáveis globais
+let overlay;
+let modal;
+
+function criacaoModal() {
     // Cria a variável de conteúdo do modal 
     let modalContent = document.getElementById("modal-content");
-    let overlay = document.getElementById("overlay");
+    overlay = document.getElementById("overlay");
     overlay.style.display = "block";
-    let modal = document.getElementById("modal");
+    modal = document.getElementById("modal");
     modal.style.display = "block";
-    }
+}
 
-    function cadastrarLivro(){
+function cadastrarLivro() {
+    criacaoModal();
+}
 
-        criacaoModal();
-    }
+// Função que fecha o modal quando o "X" for clicado
+function fecharModal() {
+    overlay.style.display = "none";
+    modal.style.display = "none";
+}
 
-    //Função que fecha o modal quando o "X" for clicado
-    function fecharModal() 
-        {
-            overlay.style.display = "none"; 
-            modal.style.display = "none"; 
-        }
+function enviarFormulario() {
+    const form = document.getElementById("formCadastroLivro");
+    const formData = new FormData(form);
 
-    function enviarFormulario() {
-        const form = document.getElementById("formCadastroLivro");
-        const formData = new FormData(form);
-
-        fetch('/livro/cadastrarLivro', {
-            method: 'POST',
-            headers: 
-            {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(Object.fromEntries(formData)),
-        }).then(response => response.json())
-          .then(data => {
-              alert('Livro cadastrado com sucesso!');
-              fecharModal();
-          }).catch(error => {
-              console.error('Erro ao cadastrar livro:', error);
-              alert('Erro ao cadastrar livro.');
-          });
-    }
+    fetch('/livro/cadastrarLivro', {
+        method: 'POST',
+        body: formData, // Envia formData diretamente como corpo da requisição
+    }).then(response => response.json())
+      .then(data => {
+          alert('Livro cadastrado com sucesso!');
+          fecharModal();
+      }).catch(error => {
+          console.error('Erro ao cadastrar livro:', error);
+          alert('Erro ao cadastrar livro.');
+      });
+}
 
 </script>
