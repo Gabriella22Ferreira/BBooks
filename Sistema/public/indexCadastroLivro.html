@@ -9,7 +9,7 @@
 
 
 </head>
-<body onload="validarSessao()">
+<body >
     <header>
         <div id="titulosMenu">
             <h1>BBOOKS</h1>
@@ -20,12 +20,11 @@
                 <a href="indexTelaInicial.html">Meu desempenho</a>
                 <a href="indexCadastroLivro.html">Meus livros</a>
                 <a href="indexPlanoLeitura.html">Meus planos</a>
-                <a href="indexConfiguracoesUsuario.html">Configurações</a>
             </ul>
         </div>
         <div id="saida">
             <img src="IMG/porta.png">
-            <a href="indexHome.html" onclick="limparSessao()">Sair</a>
+            <a href="indexHome.html">Sair</a>
         </div>
     </header>
 
@@ -37,16 +36,7 @@
         <div id="containerDesempenhoNovo">
             <div id="linhaEsquerda">
                 <div id="blocoInferiorUm">
-                    <div id="cardLivro">jiogjaeiorjgoiaejia</div>
-                    <div id="cardLivro">jiogjaeiorjgoiaejia</div>
-                    <div id="cardLivro">jiogjaeiorjgoiaejia</div>
-                    <div id="cardLivro">jiogjaeiorjgoiaejia</div>
-                    <div id="cardLivro">jiogjaeiorjgoiaejia</div>
-                    <div id="cardLivro">jiogjaeiorjgoiaejia</div>
-                    <div id="cardLivro">jiogjaeiorjgoiaejia</div>
-                    <div id="cardLivro">jiogjaeiorjgoiaejia</div>
-                    <div id="cardLivro">jiogjaeiorjgoiaejia</div>
-                    <div id="cardLivro">jiogjaeiorjgoiaejia</div>
+                    
                 </div>
             </div>
             <div id="linhaDireita">
@@ -66,35 +56,43 @@
 
                     <span class="close" onclick="fecharModal()">&times;</span>
                     <div id="modal-content">
+
                         <form id="formCadastroLivro">
-                            <label>Título:</label>
+                            <p>Título:</p>
                             <input type="text" id="ipt_titulo"><br>
 
-                            <label>Imagem:</label>
-                            <input type="file" id="ipt_imagemLivro">
+                            <!-- <label>Imagem:</label>
+                            <input type="file" id="ipt_imagemLivro"> -->
 
-                            <label>Autor:</label>
-                            <input type="text" id="ipt_autor">
+                            <p>Autor:</p>
+                            <input type="text" id="ipt_autor"><br>
 
-                            <label>Descrição:</label>
+                            <p>Descrição:</p>
                             <textarea type="text" id="ipt_descricao" maxlength="1500"></textarea><br>
 
-                            <label>Gênero:</label>
+                            <p>Gênero:</p>
                             <select id="ipt_genero">
                                 <option value="Ficção">Ficção</option>
-                                <option value="Não Ficção">Não Ficção</option>
+                                <option value="Terror">Terror</option>
                                 <option value="Romance">Romance</option>
                                 <option value="Suspense">Suspense</option>
+                                <option value="Religiosos">Religioso</option>
                                 <!-- Adicione mais opções conforme necessário -->
                             </select><br>
 
-                            <label>Total de Páginas:</label>
+                            <p>Total de Páginas:</p>
                             <input type="number" id="ipt_totalPaginas"><br>
 
-                            <label>Avaliação:</label>
-                            <input type="number" id="ipt_avaliacao" min="1" max="5"><br>
+                            <p>Avaliação:</p>
+                            <div class="star-rating">
+                                <span class="star" data-value="5">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="1">&#9733;</span>
+                            </div><br>
 
-                            <label>Status da Leitura:</label>
+                            <p>Status da Leitura:</p>
                             <select id="statusLeitura">
                                 <option value="NaoLido">Não Lido</option>
                                 <option value="Lendo">Lendo</option>
@@ -115,54 +113,114 @@
 
 <script>
 
-    var titulo = ipt_titulo.value;
-    var autor = ipt_autor.value;
-    var image = ipt_imagemLivro.value;
-    var descricao = ipt_descricao.value;
-    var genero = ipt_genero.value;
-    var totalPaginas = Number(ipt_totalPaginas.value);
-    var avaliacao = Number(ipt_avaliacao.value);
-    var status = statusLeitura.value;
+    function cadastrarLivro(){
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('modal').style.display = 'block';
+    }
+
+    function fecharModal() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('modal').style.display = 'none';
+        }
+
+    function adicionarLivroCard(livro) {
+        // Cria um novo card de livro com os dados recebidos
+        const card = document.createElement('div');
+        card.className = 'cardLivro';
+        card.innerHTML = `
+            <h3>${livro.titulo}</h3>
+            <p>Autor: ${livro.autor}</p>
+            <p>Gênero: ${livro.genero}</p>
+            <p>Total de Páginas: ${livro.totalPaginas}</p>
+            <p>Avaliação: ${livro.avaliacao}</p>
+            <p>Status da Leitura: ${livro.status}</p>
+        `;
+        // Adiciona o card ao container de livros cadastrados
+        document.getElementById('blocoInferiorUm').appendChild(card);
+    } 
+
+    function enviarFormulario() {
+            const form = document.getElementById("formCadastroLivro");
+
+            // Capturando os valores dos campos do formulário
+            var titulo = document.getElementById("ipt_titulo").value;
+            var autor = document.getElementById("ipt_autor").value;
+            var descricao = document.getElementById("ipt_descricao").value;
+            var genero = document.getElementById("ipt_genero").value;
+            var totalPaginas = Number(document.getElementById("ipt_totalPaginas").value);
+            var avaliacao = Number(document.getElementById("ipt_avaliacao").value);
+            var status = document.getElementById("statusLeitura").value;
+
+            fetch('/usuario/cadastrarLivro', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    titulo: titulo,
+                    autor: autor,
+                    descricao: descricao,
+                    genero: genero,
+                    totalPaginas: totalPaginas,
+                    avaliacao: avaliacao,
+                    status: status
+                })
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    return resposta.json(); // Pega o objeto do livro cadastrado
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro do seu livro!";
+                }
+            }).then(function (livro) {
+                // Adiciona o novo livro à lista de livros cadastrados
+                adicionarLivroCard(livro);
+                fecharModal();
+                alert("Livro cadastrado com sucesso!");
+            }).catch(function (resposta) {
+                alert(`#ERRO: ${resposta}`);
+            });
+        }
 
 
-    // Definindo as variáveis globais
-let overlay;
-let modal;
+        document.addEventListener('DOMContentLoaded', function() {
+    const stars = document.querySelectorAll('.star');
+    stars.forEach(star => {
+        star.addEventListener('click', setRating);
+        star.addEventListener('mouseover', addHoverEffect);
+        star.addEventListener('mouseout', removeHoverEffect);
+    });
 
-function criacaoModal() {
-    // Cria a variável de conteúdo do modal 
-    let modalContent = document.getElementById("modal-content");
-    overlay = document.getElementById("overlay");
-    overlay.style.display = "block";
-    modal = document.getElementById("modal");
-    modal.style.display = "block";
-}
+    function setRating(event) {
+        const selectedStar = event.currentTarget;
+        const value = selectedStar.getAttribute('data-value');
 
-function cadastrarLivro() {
-    criacaoModal();
-}
+        stars.forEach(star => {
+            if (star.getAttribute('data-value') <= value) {
+                star.classList.add('selected');
+            } else {
+                star.classList.remove('selected');
+            }
+        });
+    }
 
-// Função que fecha o modal quando o "X" for clicado
-function fecharModal() {
-    overlay.style.display = "none";
-    modal.style.display = "none";
-}
+    function addHoverEffect(event) {
+        const hoverStar = event.currentTarget;
+        const value = hoverStar.getAttribute('data-value');
 
-function enviarFormulario() {
-    const form = document.getElementById("formCadastroLivro");
-    const formData = new FormData(form);
+        stars.forEach(star => {
+            if (star.getAttribute('data-value') <= value) {
+                star.classList.add('hover');
+            } else {
+                star.classList.remove('hover');
+            }
+        });
+    }
 
-    fetch('/livro/cadastrarLivro', {
-        method: 'POST',
-        body: formData, // Envia formData diretamente como corpo da requisição
-    }).then(response => response.json())
-      .then(data => {
-          alert('Livro cadastrado com sucesso!');
-          fecharModal();
-      }).catch(error => {
-          console.error('Erro ao cadastrar livro:', error);
-          alert('Erro ao cadastrar livro.');
-      });
-}
+    function removeHoverEffect() {
+        stars.forEach(star => {
+            star.classList.remove('hover');
+        });
+    }
+});
 
 </script>

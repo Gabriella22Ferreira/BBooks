@@ -81,7 +81,7 @@
 
 button
 {
-    margin-top: 40%;
+    margin-top: 10%;
     border-radius: 2rem;
     height: 2.5rem;
     width: 15rem;
@@ -106,10 +106,10 @@ button:hover
 #modal
 {
     display: none;
-    background-color: #f3f7fa;
+    background-color: #ecebf1;
     box-shadow: 3px 3px 7px 2px #000713;
     padding: 2.5rem;
-	border: 2px solid  #f3f7fa;
+	border: 1px solid  #242438;
     border-radius: 2rem;
     position: fixed;
     top: 50%; /* Centraliza verticalmente */
@@ -118,12 +118,13 @@ button:hover
     z-index: 1001; /* Z-index maior que o fundo escuro para garantir que fique na frente */
     transition: opacity 0.3s, transform 0.3s; /* Transições suaves para opacidade e transformação */
     
-    P{
-        font-size: 1.8rem;
-        color: #4c6880;
-        font-variant: small-caps;
-        text-align: center ;
-        padding: 1rem;
+    #titulo-modal {
+        font-size: 1.5rem;
+        color: #111c29;
+        padding: 1.5rem;
+        font-weight: 500;
+        text-align: center;
+        text-transform: uppercase;
     }
 } 
 
@@ -132,7 +133,7 @@ button:hover
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 30rem;
+    width: 50rem;
     justify-content: center;
     align-items: center;
 
@@ -171,4 +172,71 @@ button:hover
 
 .close:hover {
     color: #9c1d1d; 
+}
+
+#formCadastroLivro{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 55%;
+    height: 59%;
+    
+    p{
+        font-size: 1rem;
+        color: #111c29;
+        font-weight: 500;
+        text-transform: uppercase;
+
+    }
+    input{
+        border-radius: 1rem;
+        border: 1px solid #111c29;
+        text-align: center;
+        width: 15rem;
+        height: 1.8rem;
+
+        
+    }
+    #ipt_totalPaginas{
+        width: 7rem;
+        height: 1.6rem;
+    }
+    #ipt_avaliacao{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        background-color: #536172;
+        width: 33%;
+        height: 10%;
+        gap: 0.3rem;
+    }
+    .star-rating {
+        display: flex;
+        flex-direction: row-reverse;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+    .star {
+        color: #131520;
+        transition: color 0.2s;
+    }
+    .star:hover,
+    .star:hover ~ .star {
+        color: gold;
+    }
+    
+    .star.selected {
+        color: gold;
+    }
+
+    select{
+        width: 7rem;
+        height: 2rem;
+        border-radius: 1rem;
+        text-align: center;
+        font-weight: 400;
+        font-size: 1rem;
+    }
 }
