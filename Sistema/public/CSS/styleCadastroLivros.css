@@ -81,7 +81,7 @@
 
 button
 {
-    margin-top: 10%;
+    margin-top: 40%;
     border-radius: 2rem;
     height: 2.5rem;
     width: 15rem;
@@ -133,7 +133,7 @@ button:hover
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 50rem;
+    width: 40rem;
     justify-content: center;
     align-items: center;
 
@@ -180,8 +180,8 @@ button:hover
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 55%;
-    height: 59%;
+    width: 65%;
+    height: 55%;
     
     p{
         font-size: 1rem;
@@ -196,13 +196,25 @@ button:hover
         text-align: center;
         width: 15rem;
         height: 1.8rem;
-
         
+    }
+
+    textarea
+    {
+        border-radius: 0.5rem;
+        border: 1px solid #111c29;
+        text-align: justify;
+        width: 8rem;
+        height: 7rem;
+
     }
     #ipt_totalPaginas{
         width: 7rem;
         height: 1.6rem;
     }
+    #ipt_totalPaginas::-webkit-inner-spin-button { 
+        -webkit-appearance: none;}
+    
     #ipt_avaliacao{
         display: flex;
         flex-direction: row;
@@ -226,17 +238,39 @@ button:hover
     .star:hover ~ .star {
         color: gold;
     }
-    
     .star.selected {
         color: gold;
     }
 
     select{
-        width: 7rem;
+        width: 8rem;
         height: 2rem;
         border-radius: 1rem;
         text-align: center;
         font-weight: 400;
         font-size: 1rem;
     }
+    
+button
+{
+    margin-top: 10%;
+    border-radius: 2rem;
+    height: 2.5rem;
+    width: 15rem;
+    font-size: 1rem;
+    font-weight: 550;
+    cursor: pointer;
+    background-color: #384B64;
+    color: #fff;
+    border: 1px solid #384B64;
+    transition: all 0.5s ease-in-out;
+    text-transform: uppercase;
+}
+
+button:hover
+{   
+    background-color: var(---corHeader);
+    color: #2c3f58;
+    transition: all 0.5s  ease-in-out;
+}
 }
