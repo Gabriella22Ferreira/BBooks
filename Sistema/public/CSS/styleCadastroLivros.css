@@ -121,7 +121,7 @@ button:hover
     #titulo-modal {
         font-size: 1.5rem;
         color: #111c29;
-        padding: 1.5rem;
+        padding: 1rem;
         font-weight: 500;
         text-align: center;
         text-transform: uppercase;
@@ -180,7 +180,7 @@ button:hover
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 65%;
+    width: 59%;
     height: 55%;
     
     p{
@@ -204,8 +204,8 @@ button:hover
         border-radius: 0.5rem;
         border: 1px solid #111c29;
         text-align: justify;
-        width: 8rem;
-        height: 7rem;
+        width: 12rem;
+        height: 5rem;
 
     }
     #ipt_totalPaginas{
@@ -253,7 +253,7 @@ button:hover
     
 button
 {
-    margin-top: 10%;
+    margin-top: 8%;
     border-radius: 2rem;
     height: 2.5rem;
     width: 15rem;
