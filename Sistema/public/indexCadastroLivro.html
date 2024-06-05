@@ -92,12 +92,16 @@
                                 <span class="star" data-value="1">&#9733;</span>
                             </div><br>
 
-                            <p>Status da Leitura:</p>
-                            <select id="statusLeitura">
+                            <select id="statusLeitura" onchange="toggleDateInput()">
                                 <option value="NaoLido">Não Lido</option>
                                 <option value="Lendo">Lendo</option>
                                 <option value="Lido">Lido</option>
                             </select><br>
+                        
+                            <div id="dataTerminoContainer" style="display: none;">
+                                <p>Data de Término:</p>
+                                <input type="date" id="dataTermino"><br>
+                            </div>
                             
                             <button type="button" onclick="enviarFormulario()">Cadastrar</button>
                         </form>
@@ -139,50 +143,66 @@
         document.getElementById('blocoInferiorUm').appendChild(card);
     } 
 
-    function enviarFormulario() {
-            const form = document.getElementById("formCadastroLivro");
 
-            // Capturando os valores dos campos do formulário
-            var titulo = document.getElementById("ipt_titulo").value;
-            var autor = document.getElementById("ipt_autor").value;
-            var descricao = document.getElementById("ipt_descricao").value;
-            var genero = document.getElementById("ipt_genero").value;
-            var totalPaginas = Number(document.getElementById("ipt_totalPaginas").value);
-            var avaliacao = Number(document.getElementById("ipt_avaliacao").value);
-            var status = document.getElementById("statusLeitura").value;
+//  parte que faz aparecer calendario para colocar a data que foi concluido a leitura do livro 
+function toggleDateInput() {
+    const statusLeitura = document.getElementById('statusLeitura').value;
+    const dataTerminoContainer = document.getElementById('dataTerminoContainer');
 
-            fetch('/usuario/cadastrarLivro', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    titulo: titulo,
-                    autor: autor,
-                    descricao: descricao,
-                    genero: genero,
-                    totalPaginas: totalPaginas,
-                    avaliacao: avaliacao,
-                    status: status
-                })
-            }).then(function (resposta) {
-                if (resposta.ok) {
-                    return resposta.json(); // Pega o objeto do livro cadastrado
-                } else {
-                    throw "Houve um erro ao tentar realizar o cadastro do seu livro!";
-                }
-            }).then(function (livro) {
-                // Adiciona o novo livro à lista de livros cadastrados
-                adicionarLivroCard(livro);
-                fecharModal();
-                alert("Livro cadastrado com sucesso!");
-            }).catch(function (resposta) {
-                alert(`#ERRO: ${resposta}`);
-            });
+    if (statusLeitura === 'Lido') {
+        dataTerminoContainer.style.display = 'block';
+    } else {
+        dataTerminoContainer.style.display = 'none';
+    }
+}
+
+function enviarFormulario() {
+    const form = document.getElementById("formCadastroLivro");
+
+    // Capturando os valores dos campos do formulário
+    const titulo = document.getElementById("ipt_titulo").value;
+    const autor = document.getElementById("ipt_autor").value;
+    const descricao = document.getElementById("ipt_descricao").value;
+    const genero = document.getElementById("ipt_genero").value;
+    const totalPaginas = Number(document.getElementById("ipt_totalPaginas").value);
+    const avaliacao = document.querySelector('.star.selected') ? Number(document.querySelector('.star.selected').getAttribute('data-value')) : 0;
+    const status = document.getElementById("statusLeitura").value;
+    const dataTermino = status === 'Lido' ? document.getElementById("dataTermino").value : null;
+
+    fetch('/usuario/cadastrarLivro', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            titulo: titulo,
+            autor: autor,
+            descricao: descricao,
+            genero: genero,
+            totalPaginas: totalPaginas,
+            avaliacao: avaliacao,
+            status: status,
+            dataTermino: dataTermino
+        })
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            return resposta.json(); // Pega o objeto do livro cadastrado
+        } else {
+            throw "Houve um erro ao tentar realizar o cadastro do seu livro!";
         }
+    }).then(function (livro) {
+        // Adiciona o novo livro à lista de livros cadastrados
+        adicionarLivroCard(livro);
+        fecharModal();
+        alert("Livro cadastrado com sucesso!");
+    }).catch(function (resposta) {
+        alert(`#ERRO: ${resposta}`);
+    });
+}
 
 
-        document.addEventListener('DOMContentLoaded', function() {
+// PARTE AVALIACAO COM ESTRELAS
+document.addEventListener('DOMContentLoaded', function() {
     const stars = document.querySelectorAll('.star');
     stars.forEach(star => {
         star.addEventListener('click', setRating);
